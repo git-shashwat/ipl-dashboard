@@ -15,14 +15,8 @@ import { setupPage } from './../../../components/Layout/setupPage';
 import { HeaderMain } from "../../components/HeaderMain";
 
 import {
-    TinyDonutChartBig
-} from "../../components/Monitor/TinyDonutChartBig"
-import {
     TrTableMonitor
-} from "../../components/Monitor/TrTableMonitor"
-import {
-    TinyAreaChart
-} from "../../components/Monitor/TinyAreaChart"
+} from "../../components/Monitor/TrTableMonitor";
 
 const Monitor = () => (
     <Container>
@@ -45,7 +39,7 @@ const Monitor = () => (
                         <div className="mb-4">
                             <div>
                                 <p>Location: 3L-45-2B</p>
-                                <h5 className="mb-1">Storage Capacity</h5>
+                                <h2 className="mb-1">Storage Capacity</h2>
                             </div>
                             <div className="d-flex justify-content-between">
                                 <span className="d-flex align-items-center">% Volume Occupied</span>
@@ -58,187 +52,78 @@ const Monitor = () => (
                                 <span className="ml-2 text-inverse">60%</span>
                             </div>
                         </div>
-                        <div>
-                            <CardTitle tag="h5" className="mb-4">
-                                Light Intensity Monitoring
-                            </CardTitle>
-                            <div>
-                                <div>
-                                    <h6 className="mb-1">Incoming strength <small>(re0)</small></h6>
-                                    <p className="text-success">4.46</p>
-                                </div>
-                            </div>
-                            <TinyAreaChart />
-                        </div>
+                        <hr></hr>
+                        <h2><span className="text-danger">Live</span> Sensor Readings</h2>
                         <div className="mt-3">
                             <CardTitle tag="h5" className="mb-4">
-                                Temperature Monitoring
-                            </CardTitle>
-                            <div className="mb-4">
-                                <div>
-                                    <h6>Sensor 43f2</h6>
+                                <h5 className="mb-1">Temperature Reading <span><Badge color="primary" pill>Sensor 43t2</Badge></span></h5>
+                                <h2 className="mb-0">27 <small><sup>o</sup>C</small></h2>
+                            </CardTitle>     
+                            <div className="d-flex justify-content-between">
+                                <div className="text-left">
+                                    <div className="small mb-2">
+                                        <i className="fa fa-circle fa-fw text-success"></i> Previous Reading
+                                    </div>
+                                    <h6 className="mb-0">26 <sup>o</sup>C</h6>
                                 </div>
-                                <div className="d-flex justify-content-between mb-3">
-                                    <div className="text-left">
-                                        <i className="fa fa-caret-down fa-fw text-danger"></i>Min: 19ºC
+                                <div className="text-left">
+                                    <div className="small mb-2">
+                                        <i className="fa fa-circle fa-fw text-danger"></i> Projected Reading
                                     </div>
-                                    <div className="text-left">
-                                        <i className="fa fa-caret-up fa-fw text-success"></i>Avg: 26ºC
+                                    <h6 className="mb-0">28<sup>o</sup>C</h6>                                    </div>
+                            </div> 
+                        </div>
+                        <hr></hr>
+                        <div className="mt-3">
+                            <CardTitle tag="h5" className="mb-4">
+                                <h5 className="mb-1">Humidity Reading <span><Badge color="primary" pill>Sensor 47h8</Badge></span></h5>
+                                <h2 className="mb-0">84 <small>air g.kg<sup>-1</sup></small></h2>
+                            </CardTitle>     
+                            <div className="d-flex justify-content-between">
+                                <div className="text-left">
+                                    <div className="small mb-2">
+                                        <i className="fa fa-circle fa-fw text-success"></i> Previous Reading
                                     </div>
-                                    <div className="text-left">
-                                        <i className="fa fa-caret-up fa-fw text-success"></i>Max: 32ºC
-                                    </div>
+                                    <h6 className="mb-0">83 air g.kg<sup>-1</sup></h6>
                                 </div>
-                                <TinyAreaChart />
+                                <div className="text-left">
+                                    <div className="small mb-2">
+                                        <i className="fa fa-circle fa-fw text-danger"></i> Projected Reading
+                                    </div>
+                                <h6 className="mb-0">84 air g.kg<sup>-1</sup></h6>                                    </div>
                             </div>
+                        </div>
+                        <hr></hr>
+                        <div className="mt-3">
+                            <CardTitle tag="h5" className="mb-4">
+                                <h5 className="mb-1">Light Sensor Reading <span><Badge color="primary" pill>Sensor 45l2</Badge></span></h5>
+                                <h2 className="mb-0">86 <small>units</small></h2>
+                            </CardTitle>     
+                            <div className="d-flex justify-content-between">
+                                <div className="text-left">
+                                    <div className="small mb-2">
+                                        <i className="fa fa-circle fa-fw text-success"></i> Previous Reading
+                                    </div>
+                                    <h6 className="mb-0">87 units</h6>
+                                </div>
+                                <div className="text-left">
+                                    <div className="small mb-2">
+                                        <i className="fa fa-circle fa-fw text-danger"></i> Projected Reading
+                                    </div>
+                                <h6 className="mb-0">87 units</h6>                                    </div>
+                            </div>                        
                         </div>
                     </CardBody>
                 </Card>
             </Col>
-            <Col lg={ 4 }>
-                <p>
-                    Nesciunt odit eius nihil molestiae tenetur earum enim quidem. Aperiam non sapiente voluptatum in doloremque rerum magnam quae sed. 
-                    Quisquam eos non voluptate sapiente qui temporibus harum in illo. Aliquid at dolor labore. Qui error modi.
-                </p>
-                <div className="hr-text hr-text-left mt-4 mb-4">
-                    <span>Volume Status</span>
-                </div>
-                <Row className="mb-5">
-                    <Col lg={ 3 }>
-                        <div>
-                            <div className="mb-3">
-                                <h6 className="mb-1">Path</h6>
-                                <Badge color="secondary" pill>/mtn/volume1</Badge>
-                            </div>
-                            <div className="mb-0">
-                                <h2 className="mb-0">2.24 <small>TiB</small></h2>
-                                <span>Volume Size</span>
-                            </div>
-                            <TinyDonutChartBig 
-                                pieColor="primary"
-                            />
-                            <div className="d-flex justify-content-between">
-                                <div className="text-left">
-                                    <div className="small mb-2">
-                                        <i className="fa fa-circle fa-fw text-purple"></i> Used Space
-                                    </div>
-                                    <h6 className="mb-0">483,7 MB</h6>
-                                    <span>79%</span>
-                                </div>
-                                <div className="text-left">
-                                    <div className="small mb-2">
-                                        <i className="fa fa-circle fa-fw text-gray-300"></i> Free Space
-                                    </div>
-                                    <h6 className="mb-0">269,3 MB</h6>
-                                    <span>65%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </Col>
-                    <Col lg={ 3 }>
-                        <div>
-                            <div className="mb-3">
-                                <h6 className="mb-1">Path</h6>
-                                <Badge color="secondary" pill>/mtn/volume1</Badge>
-                            </div>
-                            <div className="mb-0">
-                                <h2 className="mb-0">5.07 <small>TiB</small></h2>
-                                <span>Volume Size</span>
-                            </div>
-                            <TinyDonutChartBig 
-                                pieColor="purple"
-                            />
-                            <div className="d-flex justify-content-between">
-                                <div className="text-left">
-                                    <div className="small mb-2">
-                                        <i className="fa fa-circle fa-fw text-purple"></i> Used Space
-                                    </div>
-                                    <h6 className="mb-0">48,7 MB</h6>
-                                    <span>79%</span>
-                                </div>
-                                <div className="text-left">
-                                    <div className="small mb-2">
-                                        <i className="fa fa-circle fa-fw text-gray-300"></i> Free Space
-                                    </div>
-                                    <h6 className="mb-0">26,9 MB</h6>
-                                    <span>65%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </Col>
-                    <Col lg={ 3 }>
-                        <div>
-                            <div className="mb-3">
-                                <h6 className="mb-1">Path</h6>
-                                <Badge color="secondary" pill>/mtn/volume1</Badge>
-                            </div>
-                            <div className="mb-0">
-                                <h2 className="mb-0">3.16 <small>TiB</small></h2>
-                                <span>Volume Size</span>
-                            </div>
-                            <TinyDonutChartBig 
-                                pieColor="success"
-                            />
-                            <div className="d-flex justify-content-between">
-                                <div className="text-left">
-                                    <div className="small mb-2">
-                                        <i className="fa fa-circle fa-fw text-success"></i> Used Space
-                                    </div>
-                                    <h6 className="mb-0">483,3 MB</h6>
-                                    <span>79%</span>
-                                </div>
-                                <div className="text-left">
-                                    <div className="small mb-2">
-                                        <i className="fa fa-circle fa-fw text-gray-300"></i> Free Space
-                                    </div>
-                                    <h6 className="mb-0">262,9 MB</h6>
-                                    <span>65%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </Col>
-                    <Col lg={ 3 }>
-                        <div>
-                            <div className="mb-3">
-                                <h6 className="mb-1">Path</h6>
-                                <Badge color="secondary" pill>/mtn/volume1</Badge>
-                            </div>
-                            <div className="mb-0">
-                                <h2 className="mb-0">9.27 <small>TiB</small></h2>
-                                <span>Volume Size</span>
-                            </div>
-                            <TinyDonutChartBig 
-                                pieColor="yellow"
-                            />
-                            <div className="d-flex justify-content-between">
-                                <div className="text-left">
-                                    <div className="small mb-2">
-                                        <i className="fa fa-circle fa-fw text-yellow"></i> Used Space
-                                    </div>
-                                    <h6 className="mb-0">482,7 MB</h6>
-                                    <span>79%</span>
-                                </div>
-                                <div className="text-left">
-                                    <div className="small mb-2">
-                                        <i className="fa fa-circle fa-fw text-gray-300"></i> Free Space
-                                    </div>
-                                    <h6 className="mb-0">26,9 MB</h6>
-                                    <span>65%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </Col>
-                </Row>
+            <Col lg={ 4 }>                
                 <div className="hr-text hr-text-left mt-2 mb-4">
-                    <span>Mounted Devices</span>
+                    <span>Mounted Sensors</span>
                 </div>
                 <Table responsive>
                     <thead>
                         <tr>
-                            <th className="bt-0">Description</th>
-                            <th className="bt-0">RAID</th>
-                            <th className="bt-0">Capacity</th>
-                            <th className="bt-0 text-right">Usage</th>
+                            <th className="bt-0">Sensor ID</th>
                             <th className="bt-0 text-right">Status</th>
                         </tr>
                     </thead>
