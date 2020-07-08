@@ -10,7 +10,7 @@ import { SidebarMiddleNav } from './SidebarMiddleNav';
 
 import { SidebarTopA } from '../../routes/components/Sidebar/SidebarTopA'
 import { SidebarBottomA } from '../../routes/components/Sidebar/SidebarBottomA'
-import cwcLogo from '../../images/logos/cwc.png';
+import cwcLogo from '../../images/logos/logo-primary.svg';
 
 export const DefaultSidebar = () => (
     <Sidebar>
@@ -29,6 +29,8 @@ export const DefaultSidebar = () => (
                     <img 
                         src={cwcLogo}
                         alt="cwc logo"
+                        width="200"
+                        height="200"
                     />
                 </Link>
             </Sidebar.Section>
