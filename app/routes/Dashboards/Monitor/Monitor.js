@@ -15,9 +15,6 @@ import { setupPage } from './../../../components/Layout/setupPage';
 import { HeaderMain } from "../../components/HeaderMain";
 
 import {
-    TinyDonutChart
-} from "../../components/Monitor/TinyDonutChart"
-import {
     TinyDonutChartBig
 } from "../../components/Monitor/TinyDonutChartBig"
 import {
@@ -27,167 +24,78 @@ import {
     TinyAreaChart
 } from "../../components/Monitor/TinyAreaChart"
 
-/*eslint-disable */
-const progressCompletion = [
-    "25",
-    "50",
-    "75",
-    "97"
-];
-/*eslint-enable */
-
 const Monitor = () => (
     <Container>
         <Row className="mb-2">
             <Col lg={ 12 }>
                 <HeaderMain 
-                    title="Monitor"
+                    title="Dashboard"
                     className="mb-4 mb-lg-5"
                 />
 
             </Col>
         </Row>
         <Row>
-            <Col lg={ 4 }>
+            <Col lg={ 8 }>
                 <Card className="mb-3">
                     <CardBody>
                         <CardTitle tag="h6" className="mb-4">
-                            System Monitoring
+                            <h1>Godown 1</h1>
                         </CardTitle>
                         <div className="mb-4">
                             <div>
-                                <h6 className="mb-1">CPU</h6>
-                                <p>Intel Celeron G1610 @2.60Ghz</p>
+                                <p>Location: 3L-45-2B</p>
+                                <h5 className="mb-1">Storage Capacity</h5>
                             </div>
                             <div className="d-flex justify-content-between">
-                                <span className="d-flex align-items-center mr-2">Core 0</span>
-                                <Progress value="44" className="mt-2 w-50" style={{height: "5px"}} />
+                                <span className="d-flex align-items-center">% Volume Occupied</span>
+                                <Progress value="86" className="mt-2 w-50" style={{height: "5px"}} />
                                 <span className="ml-2 text-inverse">86%</span>
                             </div>
                             <div className="d-flex justify-content-between">
-                                <span className="d-flex align-items-center mr-2">Core 1</span>
-                                <Progress value="74" className="mt-2 w-50" style={{height: "5px"}} />
-                                <span className="ml-2 text-inverse">40%</span>
-                            </div>
-                        </div>
-                        <div className="mb-4">
-                            <div>
-                                <h6 className="mb-1">Memory <small>(Ram)</small></h6>
-                                <p>GSkill 2 x 8 GB DDR3 @1333 Mhz</p>
-                            </div>
-                            <div className="mb-3 d-flex">
-                                <TinyDonutChart />
-                                <div className="ml-2 align-self-center">
-                                    <h2 className="mb-0">52 <small>GB</small></h2>
-                                    <span>Total Memory</span>
-                                </div>
-                            </div>
-                            <div className="d-flex justify-content-between">
-                                <div className="text-left">
-                                    <div className="small mb-2">
-                                        <i className="fa fa-circle fa-fw text-info"></i> Allocated
-                                    </div>
-                                    <h6 className="mb-0">48,7 MB</h6>
-                                    <span>79%</span>
-                                </div>
-                                <div className="text-left">
-                                    <div className="small mb-2">
-                                        <i className="fa fa-circle fa-fw text-primary"></i> In Cache
-                                    </div>
-                                    <h6 className="mb-0">26,9 MB</h6>
-                                    <span>65%</span>
-                                </div>
-                                <div className="text-left">
-                                    <div className="small mb-2">
-                                        <i className="fa fa-circle fa-fw text-gray-300"></i> Available
-                                    </div>
-                                    <h6 className="mb-0">2,7 MB</h6>
-                                    <span>34%</span>
-                                </div>
+                                <span className="d-flex align-items-center mr-2">% Units Placed</span>
+                                <Progress value="60" className="mt-2 w-50" style={{height: "5px"}} />
+                                <span className="ml-2 text-inverse">60%</span>
                             </div>
                         </div>
                         <div>
+                            <CardTitle tag="h5" className="mb-4">
+                                Light Intensity Monitoring
+                            </CardTitle>
                             <div>
-                                <h6 className="mb-1">Interface Traffic <small>(re0)</small></h6>
-                                <p>Intel Celeron G1610 @2.60Ghz</p>
-                            </div>
-                        </div>
-                    </CardBody>
-                </Card>
-                <Card className="mb-3">
-                    <CardBody>
-                        <CardTitle tag="h6" className="mb-4">
-                            Network Monitoring
-                        </CardTitle>
-                        <div>
-                            <div>
-                                <h6 className="mb-1">Interface Traffic <small>(re0)</small></h6>
-                                <p>Intel Celeron G1610 @2.60Ghz</p>
-                            </div>
-                        </div>
-                        <TinyAreaChart />
-                    </CardBody>
-                </Card>
-                <Card className="mb-3">
-                    <CardBody>
-                        <CardTitle tag="h6" className="mb-4">
-                           Hardware Temperature
-                        </CardTitle>
-                        <div className="mb-4">
-                            <div>
-                                <h6>CPU <small>(idle)</small></h6>
-                            </div>
-                            <div className="d-flex justify-content-between mb-3">
-                                <div className="text-left">
-                                    <i className="fa fa-caret-down fa-fw text-danger"></i>Min: 19ºC
-                                </div>
-                                <div className="text-left">
-                                    <i className="fa fa-caret-up fa-fw text-success"></i>Min: 26ºC
-                                </div>
-                                <div className="text-left">
-                                    <i className="fa fa-caret-up fa-fw text-success"></i>Min: 32ºC
+                                <div>
+                                    <h6 className="mb-1">Incoming strength <small>(re0)</small></h6>
+                                    <p className="text-success">4.46</p>
                                 </div>
                             </div>
                             <TinyAreaChart />
                         </div>
-                        <div className="mb-4">
-                            <div>
-                                <h6>HDD1 WD30EZRX <small>(ada0)</small></h6>
+                        <div className="mt-3">
+                            <CardTitle tag="h5" className="mb-4">
+                                Temperature Monitoring
+                            </CardTitle>
+                            <div className="mb-4">
+                                <div>
+                                    <h6>Sensor 43f2</h6>
+                                </div>
+                                <div className="d-flex justify-content-between mb-3">
+                                    <div className="text-left">
+                                        <i className="fa fa-caret-down fa-fw text-danger"></i>Min: 19ºC
+                                    </div>
+                                    <div className="text-left">
+                                        <i className="fa fa-caret-up fa-fw text-success"></i>Avg: 26ºC
+                                    </div>
+                                    <div className="text-left">
+                                        <i className="fa fa-caret-up fa-fw text-success"></i>Max: 32ºC
+                                    </div>
+                                </div>
+                                <TinyAreaChart />
                             </div>
-                            <div className="d-flex justify-content-between mb-3">
-                                <div className="text-left">
-                                    <i className="fa fa-caret-down fa-fw text-danger"></i>Min: 19ºC
-                                </div>
-                                <div className="text-left">
-                                    <i className="fa fa-caret-up fa-fw text-success"></i>Min: 26ºC
-                                </div>
-                                <div className="text-left">
-                                    <i className="fa fa-caret-up fa-fw text-success"></i>Min: 32ºC
-                                </div>
-                            </div>
-                            <TinyAreaChart />
-                        </div>
-                        <div>
-                            <div>
-                                <h6>HDD1 WD30EZRX <small>(ada1)</small></h6>
-                            </div>
-                            <div className="d-flex justify-content-between mb-3">
-                                <div className="text-left">
-                                    <i className="fa fa-caret-down fa-fw text-danger"></i>Min: 19ºC
-                                </div>
-                                <div className="text-left">
-                                    <i className="fa fa-caret-up fa-fw text-success"></i>Min: 26ºC
-                                </div>
-                                <div className="text-left">
-                                    <i className="fa fa-caret-up fa-fw text-success"></i>Min: 32ºC
-                                </div>
-                            </div>
-                            <TinyAreaChart />
                         </div>
                     </CardBody>
                 </Card>
             </Col>
-            <Col lg={ 8 }>
+            <Col lg={ 4 }>
                 <p>
                     Nesciunt odit eius nihil molestiae tenetur earum enim quidem. Aperiam non sapiente voluptatum in doloremque rerum magnam quae sed. 
                     Quisquam eos non voluptate sapiente qui temporibus harum in illo. Aliquid at dolor labore. Qui error modi.
@@ -344,5 +252,5 @@ const Monitor = () => (
 );
 
 export default setupPage({
-    pageTitle: 'Monitor'
+    pageTitle: 'Dashboard'
 })(Monitor);

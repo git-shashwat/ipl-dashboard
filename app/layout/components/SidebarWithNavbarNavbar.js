@@ -43,12 +43,11 @@ export const SidebarWithNavbarNavbar = () => (
                     <h1
                         className="h5 mb-0 mr-auto ml-2 d-none d-lg-block"
                     >
-                        Sidebar with Navbar
+                        Warehouse Management Solution
                     </h1>
 
                     <Nav navbar className="ml-auto">
                         <NavbarActivityFeed />
-                        <NavbarMessages className="ml-2" />
                         <NavbarUser className="ml-2" />
                     </Nav>
                 </Navbar>
@@ -61,39 +60,6 @@ export const SidebarWithNavbarNavbar = () => (
                     fluid
                     className="pt-0 pt-lg-2"
                 >
-                    <h1 className="h5 mb-0 py-2 mr-auto d-lg-none">
-                        Sidebar with Navbar
-                    </h1>
-
-                    <UncontrolledCollapse navbar toggler="#navbar-navigation-toggler">
-                        <Nav accent navbar>
-                            <NavItem>
-                                <NavLink
-                                    active
-                                    tag={ Link }
-                                    to="/layouts/sidebar-with-navbar"
-                                >
-                                    Preview
-                                </NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="https://webkom.gitbook.io/spin/v/airframe/airframe-react/documentation-react">
-                                    Docs
-                                </NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="https://github.com/0wczar/react-dashboards">
-                                    Code
-                                </NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="http://www.webkom.co/contact/">
-                                    Buy
-                                </NavLink>
-                            </NavItem>
-                        </Nav>
-                    </UncontrolledCollapse>
-
                     <Nav navbar pills className="ml-auto">
                         <NavItem>
                             <NavLink tag={ NavbarToggler } id="navbar-navigation-toggler" className="b-0">

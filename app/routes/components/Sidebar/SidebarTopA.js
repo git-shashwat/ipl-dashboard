@@ -11,9 +11,7 @@ import {
     DropdownMenu,
     DropdownItem
 } from './../../../components';
-import { randomAvatar } from './../../../utilities';
-
-const avatarImg = randomAvatar();
+import avatarImg from '../../../images/avatars/46.jpg';
 
 const SidebarTopA = () => (
     <React.Fragment>
@@ -43,32 +41,29 @@ const SidebarTopA = () => (
                 
                 <UncontrolledButtonDropdown>
                     <DropdownToggle color="link" className="pl-0 pb-0 btn-profile sidebar__link">
-                        { faker.name.firstName() } { faker.name.lastName() }
+                        Ramesh Kumar
                         <i className="fa fa-angle-down ml-2"></i>
                     </DropdownToggle>
                     <DropdownMenu persist>
                     <DropdownItem header>
-                        { faker.name.firstName() } { faker.name.lastName() }
+                        Ramesh Kumar
                     </DropdownItem>
                     <DropdownItem divider />
                     <DropdownItem tag={ Link } to="/apps/profile-details">
                         My Profile
                     </DropdownItem>
-                    <DropdownItem tag={ Link } to="/apps/settings-edit">
-                        Settings
-                    </DropdownItem>
                     <DropdownItem tag={ Link } to="/apps/billing-edit">
                         Billings
                     </DropdownItem>
                     <DropdownItem divider />
-                    <DropdownItem tag={ Link } to="/pages/login">
+                    <DropdownItem tag={ Link } to="/pages/login">   {/*TODO Yaha firebase signout wala kaam krna hai dost*/ }
                         <i className="fa fa-fw fa-sign-out mr-2"></i>
                         Sign Out
                     </DropdownItem>
                     </DropdownMenu>
                 </UncontrolledButtonDropdown>
                 <div className="small sidebar__link--muted">
-                    { faker.name.jobTitle() }
+                    Warehouse Manager
                 </div>
             </Sidebar.Section>
         </Sidebar.HideSlim>

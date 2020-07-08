@@ -40,7 +40,7 @@ const NavbarActivityFeed = (props) => (
     <UncontrolledDropdown nav inNavbar { ...props }>
         <DropdownToggle nav>
             <IconWithBadge
-                badge={ <Badge pill color="primary">6</Badge> }
+                badge={ <Badge pill color="primary">4</Badge> }
             >
                 <i className="fa fa-bell-o fa-fw" />
             </IconWithBadge>
@@ -53,32 +53,62 @@ const NavbarActivityFeed = (props) => (
 
             <ExtendedDropdown.Section list>
                 <ListGroup>
-                {
-                    _.times(7, (index) => (
-                        <ListGroupItem key={ index } action>
-                            <Media>
-                                <Media left>
-                                    { activityFeedIcons[index%4] }
-                                </Media>
-                                <Media body>
-                                    <span className="h6">
-                                        { faker.name.firstName() } { faker.name.lastName() }
-                                    </span> changed Description to &quot;{ faker.random.words() }&quot;
-                                    <p className="mt-2 mb-1">
-                                        { faker.lorem.sentence() }
-                                    </p>
-                                    <div className="small mt-2">
-                                        { faker.date.past().toString() }
-                                    </div>
-                                </Media>
+                    <ListGroupItem action>
+                        <Media>
+                            <Media left>
+                                { activityFeedIcons[0] }
                             </Media>
-                        </ListGroupItem>
-                    ))
-                }
+                            <Media body>
+                                <p>Godown 1 sensors are functioning nominally. That's great!</p>
+                                <div className="small mt-2">
+                                    { faker.date.past().toString() }
+                                </div>
+                            </Media>
+                        </Media>
+                    </ListGroupItem>
+                    <ListGroupItem action>
+                        <Media>
+                            <Media left>
+                                { activityFeedIcons[1] }
+                            </Media>
+                            <Media body>
+                                <p>Godown 2 Temperature sensor is not giving readings. Please examine.</p>
+                                <div className="small mt-2">
+                                    { faker.date.past().toString() }
+                                </div>
+                            </Media>
+                        </Media>
+                    </ListGroupItem>
+                    <ListGroupItem action>
+                        <Media>
+                            <Media left>
+                                { activityFeedIcons[2] }
+                            </Media>
+                            <Media body>
+                                <p>Humidity in Godown 3 seems to be higher than nominal. Give a check.</p>
+                                <div className="small mt-2">
+                                    { faker.date.past().toString() }
+                                </div>
+                            </Media>
+                        </Media>
+                    </ListGroupItem>
+                    <ListGroupItem action>
+                        <Media>
+                            <Media left>
+                                { activityFeedIcons[3] }
+                            </Media>
+                            <Media body>
+                                <p>Weather conditions are good for outside placement of crops.</p>
+                                <div className="small mt-2">
+                                    { faker.date.past().toString() }
+                                </div>
+                            </Media>
+                        </Media>
+                    </ListGroupItem>
                 </ListGroup>
             </ExtendedDropdown.Section>
 
-            <ExtendedDropdown.Section className="text-center" tag={ Link} to="/apps/widgets">
+            <ExtendedDropdown.Section className="text-center" tag={ Link} to="#">
                 See All Notifications
                 <i className="fa fa-angle-right fa-fw ml-2" />
             </ExtendedDropdown.Section>
