@@ -13,6 +13,7 @@ import {
 import { setupPage } from './../../../components/Layout/setupPage';
 
 import { HeaderMain } from "../../components/HeaderMain";
+import "../../../styles/components/status-lights.scss";
 
 import {
     TrTableMonitor
@@ -53,84 +54,58 @@ const Monitor = () => (
                             </div>
                         </div>
                         <hr></hr>
-                        <h2><span className="text-danger">Live</span> Sensor Readings</h2>
+                        <div className="d-flex justify-content-between">
+                            <h2><span className="text-danger">Live</span> Sensor Readings</h2>
+                            <h2>Status</h2>
+                        </div>
                         <div className="mt-3">
                             <CardTitle tag="h5" className="mb-4">
-                                <h5 className="mb-1">Temperature Reading <span><Badge color="primary" pill>Sensor 43t2</Badge></span></h5>
+                                <Row>
+                                    <Col>
+                                        <h5 className="mb-1">Temperature Reading <span><Badge color="primary" pill>Sensor 43t2</Badge></span></h5>
+                                    </Col>
+                                    <Col>
+                                        <div class="mr-2 led-green"></div>
+                                    </Col>
+                                </Row>
                                 <h2 className="mb-0">27 <small><sup>o</sup>C</small></h2>
                             </CardTitle>     
-                            <div className="d-flex justify-content-between">
-                                <div className="text-left">
-                                    <div className="small mb-2">
-                                        <i className="fa fa-circle fa-fw text-success"></i> Previous Reading
-                                    </div>
-                                    <h6 className="mb-0">26 <sup>o</sup>C</h6>
-                                </div>
-                                <div className="text-left">
-                                    <div className="small mb-2">
-                                        <i className="fa fa-circle fa-fw text-danger"></i> Projected Reading
-                                    </div>
-                                    <h6 className="mb-0">28<sup>o</sup>C</h6>                                    </div>
-                            </div> 
                         </div>
                         <hr></hr>
                         <div className="mt-3">
                             <CardTitle tag="h5" className="mb-4">
-                                <h5 className="mb-1">Humidity Reading <span><Badge color="primary" pill>Sensor 47h8</Badge></span></h5>
+                                <Row>
+                                    <Col>
+                                        <h5 className="mb-1">Humidity Reading <span><Badge color="primary" pill>Sensor 47h8</Badge></span></h5>
+                                    </Col>
+                                    <Col>
+                                        <div class="mr-2 led-red"></div>
+                                    </Col>
+                                </Row>
                                 <h2 className="mb-0">84 <small>air g.kg<sup>-1</sup></small></h2>
                             </CardTitle>     
-                            <div className="d-flex justify-content-between">
-                                <div className="text-left">
-                                    <div className="small mb-2">
-                                        <i className="fa fa-circle fa-fw text-success"></i> Previous Reading
-                                    </div>
-                                    <h6 className="mb-0">83 air g.kg<sup>-1</sup></h6>
-                                </div>
-                                <div className="text-left">
-                                    <div className="small mb-2">
-                                        <i className="fa fa-circle fa-fw text-danger"></i> Projected Reading
-                                    </div>
-                                <h6 className="mb-0">84 air g.kg<sup>-1</sup></h6>                                    </div>
-                            </div>
                         </div>
                         <hr></hr>
                         <div className="mt-3">
                             <CardTitle tag="h5" className="mb-4">
-                                <h5 className="mb-1">Light Sensor Reading <span><Badge color="primary" pill>Sensor 45l2</Badge></span></h5>
+                                <Row>
+                                    <Col>
+                                        <h5 className="mb-1">Light Sensor Reading <span><Badge color="primary" pill>Sensor 45l2</Badge></span></h5>
+                                    </Col>
+                                    <Col>
+                                        <div class="mr-2 led-yellow"></div>
+                                    </Col>
+                                </Row>
                                 <h2 className="mb-0">86 <small>units</small></h2>
-                            </CardTitle>     
-                            <div className="d-flex justify-content-between">
-                                <div className="text-left">
-                                    <div className="small mb-2">
-                                        <i className="fa fa-circle fa-fw text-success"></i> Previous Reading
-                                    </div>
-                                    <h6 className="mb-0">87 units</h6>
-                                </div>
-                                <div className="text-left">
-                                    <div className="small mb-2">
-                                        <i className="fa fa-circle fa-fw text-danger"></i> Projected Reading
-                                    </div>
-                                <h6 className="mb-0">87 units</h6>                                    </div>
-                            </div>                        
+                            </CardTitle>                            
                         </div>
                     </CardBody>
                 </Card>
             </Col>
             <Col lg={ 4 }>                
                 <div className="hr-text hr-text-left mt-2 mb-4">
-                    <span>Mounted Sensors</span>
+                    <span>Weather Report</span>
                 </div>
-                <Table responsive>
-                    <thead>
-                        <tr>
-                            <th className="bt-0">Sensor ID</th>
-                            <th className="bt-0 text-right">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <TrTableMonitor />
-                    </tbody>
-                </Table>
             </Col>
         </Row>
     </Container>

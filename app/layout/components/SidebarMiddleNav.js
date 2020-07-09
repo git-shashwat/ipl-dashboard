@@ -1,3 +1,4 @@
+//FIXME yeh sidebar ka main content hai
 import React from 'react';
 
 import { SidebarMenu } from './../../components';
@@ -10,19 +11,9 @@ export const SidebarMiddleNav = () => (
             to="/dashboards/monitor"
         />
         <SidebarMenu.Item 
-            icon={<i className="fa fa-fw fa-cloud"></i>}
-            title="Weather Monitor"
-            to="/dashboards/financial"
-        />
-        <SidebarMenu.Item 
-        icon={<i className="fa fa-fw fa-microchip"></i>}
+            icon={<i className="fa fa-fw fa-microchip"></i>}
             title="Sensors Monitor"
             to="/dashboards/reports"
-        />
-        <SidebarMenu.Item 
-            icon={<i className="fa fa-fw fa-search"></i>}
-                title="Inspection Manager"
-                to="/dashboards/projects"
         />
         <SidebarMenu.Item 
             icon={<i className="fa fa-fw fa-stethoscope"></i>}
@@ -32,7 +23,7 @@ export const SidebarMiddleNav = () => (
         <SidebarMenu.Item 
             icon={<i className="fa fa-fw fa-money"></i>}
             title="Crop Price Monitor"
-            to="/dashboards/analytics"
+            to="/dashboards/financial"
         />
         <SidebarMenu.Item
             icon={<i className="fa fa-fw fa-home"></i>}
