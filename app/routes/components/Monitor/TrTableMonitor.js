@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 import { Badge } from 'reactstrap';
 
 import "../../../styles/components/status-lights.scss"
