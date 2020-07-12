@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import faker from 'faker/locale/en_US';
 import _ from 'lodash';
 import {
-    Container,
     ButtonToolbar,
     ButtonGroup,
     UncontrolledButtonDropdown,
@@ -23,8 +22,6 @@ import {
     CardHeader
 } from './../../../components';
 import { applyColumn } from './../../../components/FloatGrid';
-
-import { HeaderMain } from "../../components/HeaderMain";
 
 import {
     MetricVsTarget
@@ -94,87 +91,62 @@ export class Analytics extends React.Component {
 
         return (
             <React.Fragment>
-                <Container fluid={ false }>
+                <div fluid={ false }>
                     <div className="d-flex mt-3 mb-5">
-                        <HeaderMain 
-                            title="Analytics"
-                            className="mt-0"
-                        />
+                        <h4 className="text-secondary">Crop Health Dashboard</h4>
                         <ButtonToolbar className="ml-auto">
                             <ButtonGroup className="align-self-start mr-2">
                                 <UncontrolledButtonDropdown className="ml-auto flex-column">
                                     <DropdownToggle color="link" className="text-left pl-0 text-decoration-none mb-2">
-                                        <i className="fa fa-globe text-body mr-2"></i>
-                                        www.webkom.co<i className="fa fa-angle-down text-body ml-2" />
+                                        <i className="fa fa-building text-body mr-2"></i>
+                                        Godown 1<i className="fa fa-angle-down text-body ml-2" />
                                     </DropdownToggle>
-                                    <div className="small">
-                                        Last 30 Days vs Previous Period
-                                    </div>
                                     <DropdownMenu>
                                         <DropdownItem header>
-                                            Select Site:
+                                            Select Godown:
                                         </DropdownItem>
                                         <DropdownItem active>
-                                            www.webkom.co
+                                            Godown 2
                                         </DropdownItem>
                                         <DropdownItem>
-                                            www.spin.webkom.co
+                                            Godown 3
                                         </DropdownItem>
                                         <DropdownItem divider />
-                                        <DropdownItem>
-                                            <i className="fa fa-fw fa-plus mr-2"></i>
-                                            Add New
-                                        </DropdownItem>
                                     </DropdownMenu>
                                 </UncontrolledButtonDropdown>
                             </ButtonGroup>
+                            <ButtonGroup className="align-self-start mr-2">
+                                <UncontrolledButtonDropdown className="ml-auto flex-column">
+                                    <DropdownToggle color="link" className="text-left pl-0 text-decoration-none mb-2">
+                                        <i className="fa fa-building text-body mr-2"></i>
+                                        Compartment 1<i className="fa fa-angle-down text-body ml-2" />
+                                    </DropdownToggle>
+                                    <DropdownMenu>
+                                        <DropdownItem header>
+                                            Select Compartment:
+                                        </DropdownItem>
+                                        <DropdownItem active>
+                                            Compartment 2
+                                        </DropdownItem>
+                                        <DropdownItem>
+                                            Compartment 3
+                                        </DropdownItem>
+                                        <DropdownItem divider />
+                                    </DropdownMenu>
+                                </UncontrolledButtonDropdown>
+                            </ButtonGroup>                            
                             <ButtonGroup className="align-self-start mr-2">
                                 <UncontrolledButtonDropdown className="ml-auto flex-column">
                                     <DropdownToggle color="link" className="text-left pl-0 text-decoration-none mb-2">
                                         <i className="fa fa-calendar-o text-body mr-2"></i>
                                         Last Month<i className="fa fa-angle-down text-body ml-2" />
                                     </DropdownToggle>
-                                    <div className="small">
-                                        Jan 01, 2017 to Jan 31, 2017
-                                    </div>
                                     <DropdownMenu>
                                         <DropdownItem header>
                                             Select Period:
                                         </DropdownItem>
                                         <DropdownItem active>
                                             Last Month
-                                        </DropdownItem>
-                                        <DropdownItem>
-                                            Last 3 Months
-                                        </DropdownItem>
-                                        <DropdownItem>
-                                            Last 6 Months
-                                        </DropdownItem>
-                                        <DropdownItem>
-                                            Last Year
-                                        </DropdownItem>
-                                        <DropdownItem divider />
-                                        <DropdownItem>
-                                            Custom...
-                                        </DropdownItem>
-                                    </DropdownMenu>
-                                </UncontrolledButtonDropdown>
-                            </ButtonGroup>
-                            <ButtonGroup className="align-self-start mr-2">
-                                <UncontrolledButtonDropdown className="ml-auto flex-column">
-                                    <DropdownToggle color="link" className="text-left pl-0 text-decoration-none mb-2">
-                                        <i className="fa fa-calendar-o text-body mr-2"></i>
-                                        Previous Period<i className="fa fa-angle-down text-body ml-2" />
-                                    </DropdownToggle>
-                                    <div className="small">
-                                        Jan 01, 2017 to Jan 31, 2017
-                                    </div>
-                                    <DropdownMenu>
-                                        <DropdownItem header>
-                                            Select Period:
-                                        </DropdownItem>
-                                        <DropdownItem active>
-                                            Previous Period
                                         </DropdownItem>
                                         <DropdownItem>
                                             Last 3 Months
@@ -208,7 +180,7 @@ export class Analytics extends React.Component {
                             </ButtonGroup>
                         </ButtonToolbar>
                     </div>
-                </Container>
+                </div>
 
                 <Grid>
                     <Grid.Row
