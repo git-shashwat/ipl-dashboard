@@ -9,12 +9,12 @@ import {
 
 import colors from './../../../colors';
 
-const data = _.times(20, () => ({ pv: Math.random() * 100 }));
+const data = _.times(20, () => ({ pointer: Math.floor(Math.random()*20) * 100 }));
 
 const TinyAreaChart = ({ height }) => (
     <ResponsiveContainer width='100%' height={ height }>
         <AreaChart data={data}>
-            <Area dataKey='pv' stroke={ colors['primary'] } fill={ colors['primary-02'] } />
+            <Area type="monotone" dataKey='pointer' stroke={ colors['primary'] } fill={ colors['primary-02'] } />
         </AreaChart>
     </ResponsiveContainer>
 );

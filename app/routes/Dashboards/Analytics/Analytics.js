@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import faker from 'faker/locale/en_US';
+import { Row, Col } from 'reactstrap';
 import _ from 'lodash';
 import {
     ButtonToolbar,
@@ -41,15 +42,8 @@ import {
 import classes from './Analytics.scss';
 
 const LAYOUT = {
-    'metric-v-target-users': { h: 6, md: 4 },
-    'metric-v-target-sessions': { h: 6, md: 4 },
-    'metric-v-target-pageviews': { h: 6, md: 4 },
-    'analytics-audience-metrics': { h: 9, minH: 7 },
-    'traffic-channels': { md: 6, h: 6 },
-    'sessions': { md: 6, h: 6, maxH: 9, minW: 3 },
-    'spend': { md: 6, h: 7 },
-    'website-performance': { md: 6, h: 11 },
-    'organic-traffic': { md: 6, h: 10 }
+    'cumulative-health-score': { h: 9, minH: 7 },
+    'health-score': { md: 6, h: 7 }
 }
 
 const SessionByDevice = (props) => (
@@ -180,57 +174,128 @@ export class Analytics extends React.Component {
                         </ButtonToolbar>
                     </div>
                 </div>
-
-                <Grid>
-                    <Grid.Row
-                        onLayoutChange={ layouts => this.setState({ layouts }) }
-                        columnSizes={ this.state.layouts }
-                        rowHeight={ 55 }
-                    >
-                        <Grid.Col { ...(applyColumn('spend', layouts)) }>
-                            <Card>
-                                <CardHeader className="d-flex bb-0 pt-3 bg-none">
-                                    <span className="h6">
-                                        <i className="fa fa-ellipsis-v text-body mr-2"></i> Spend
-                                    </span>
-                                    <span className="ml-auto text-right">
-                                        Dec 22, 2016 to<br />
-                                        Dec 31, 2016 <i>(prev.)</i>
-                                    </span>
-                                </CardHeader>
-                                <CardBody>
-                                    <div className="text-center mb-4">
-                                        <h2>
-                                            $2,890.12
-                                        </h2>
-                                        <div className="mb-1 text-success">
-                                            <i className="fa mr-1 fa-caret-up"></i>
-                                            23.34%
-                                        </div>
-                                        <div>
-                                            vs { faker.finance .amount() } (prev.)
-                                        </div>
-                                    </div>
-                                </CardBody>
-                                <CardBody className="p-0">
-                                    <TinyAreaChart height={ 70 } />
-                                </CardBody>
-                            </Card>
-                        </Grid.Col>
-                        <Grid.Col { ...(applyColumn('analytics-audience-metrics', layouts)) }>
+                <Row>
+                    <Col xl={4} lg={4}>
+                        <div className="mb-2">
+                            <h3>Comodities Stored</h3>
+                            <h6 className="text-secondary">Select a commodity to check it's health score</h6>
+                                <ListGroup>
+                                    <ListGroupItem color="primary" active action>Corn</ListGroupItem>
+                                    <ListGroupItem tag="a" href="#" action>Wheat</ListGroupItem>
+                                    <ListGroupItem tag="a" href="#" action>Rice</ListGroupItem>
+                                    <ListGroupItem tag="a" href="#" action>Bajra</ListGroupItem>
+                                    <ListGroupItem tag="a" href="#" action>Moong</ListGroupItem>
+                                    <ListGroupItem tag="a" href="#" action>Chana</ListGroupItem>
+                                </ListGroup>                        
+                        </div>
+                    </Col>
+                    <Col xl={8} lg={8}>
+                        <div { ...(applyColumn('cumulative-health-score', layouts)) } className="mb-3">
                             <Card>
                                 <CardHeader className="bb-0 pt-3 pb-4 bg-none" tag="h6">
-                                    <i className="fa fa-ellipsis-v mr-2 text-body"></i> Analytics Audience Metrics
+                                    <i className="fa fa-ellipsis-v mr-2 text-body"></i> Cumulative Health Score
                                 </CardHeader>
-                                <CardBody className="d-flex flex-column">
-                                    <Grid.Ready>
-                                        <AudienceMetricsChart height="100%" className="flex-fill" />
-                                    </Grid.Ready>
-                                </CardBody>
+                                    <CardBody>
+                                        <div className="text-center mb-4">
+                                            <h2>
+                                                84/100
+                                            </h2>
+                                            <div className="mb-1 text-success">
+                                                <i className="fa mr-1 fa-caret-up"></i>
+                                                2.50%
+                                            </div>
+                                            <div>
+                                                vs 82/100 (prev.)
+                                            </div>
+                                        </div>
+                                    </CardBody>
+                                    <CardBody className="p-0">
+                                        <TinyAreaChart height={ 100 } />
+                                    </CardBody>                                    
                             </Card>
-                        </Grid.Col>                        
-                    </Grid.Row>
-                </Grid>
+                        </div>                    
+                        <Row>
+                            <Col>
+                                <Card>
+                                    <CardHeader className="d-flex bb-0 pt-3 bg-none">
+                                        <span className="h6">
+                                            <i className="fa fa-ellipsis-v text-body mr-2"></i> Temperature Score
+                                        </span>
+                                    </CardHeader>
+                                    <CardBody>
+                                        <div className="text-center mb-4">
+                                            <h2>
+                                                94/100
+                                            </h2>
+                                            <div className="mb-1 text-danger">
+                                                <i className="fa mr-1 fa-caret-down"></i>
+                                                1.2%
+                                            </div>
+                                            <div>
+                                                vs 90/100 (prev.)
+                                            </div>
+                                        </div>
+                                    </CardBody>
+                                    <CardBody className="p-0">
+                                        <TinyAreaChart height={ 100 } />
+                                    </CardBody>
+                                </Card>                            
+                            </Col>
+                            <Col>
+                                <Card>
+                                    <CardHeader className="d-flex bb-0 pt-3 bg-none">
+                                        <span className="h6">
+                                            <i className="fa fa-ellipsis-v text-body mr-2"></i> Humidity Score
+                                        </span>
+                                    </CardHeader>
+                                    <CardBody>
+                                        <div className="text-center mb-4">
+                                            <h2>
+                                                62/100
+                                            </h2>
+                                            <div className="mb-1 text-success">
+                                                <i className="fa mr-1 fa-caret-up"></i>
+                                                0.9%
+                                            </div>
+                                            <div>
+                                                vs 63/100 (prev.)
+                                            </div>
+                                        </div>
+                                    </CardBody>
+                                    <CardBody className="p-0">
+                                        <TinyAreaChart height={ 100 } />
+                                    </CardBody>
+                                </Card>                            
+                            </Col>
+                            <Col>
+                                <Card>
+                                    <CardHeader className="d-flex bb-0 pt-3 bg-none">
+                                        <span className="h6">
+                                            <i className="fa fa-ellipsis-v text-body mr-2"></i> Light Intensity Score
+                                        </span>
+                                    </CardHeader>
+                                    <CardBody>
+                                        <div className="text-center mb-4">
+                                            <h2>
+                                                100/100
+                                            </h2>
+                                            <div className="mb-1 text-success">
+                                                <i className="fa mr-1 fa-caret-up"></i>
+                                                23.34%
+                                            </div>
+                                            <div>
+                                                vs 87/100 (prev.)
+                                            </div>
+                                        </div>
+                                    </CardBody>
+                                    <CardBody className="p-0">
+                                        <TinyAreaChart height={ 100 } />
+                                    </CardBody>
+                                </Card>                            
+                            </Col>                            
+                        </Row>                     
+                    </Col>
+                </Row>
             </div>
         );
     }
