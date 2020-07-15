@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import faker from 'faker/locale/en_US';
 import { Row, Col } from 'reactstrap';
 import _ from 'lodash';
 import {
@@ -12,32 +11,17 @@ import {
     DropdownItem,
     FloatGrid as Grid,
     Card,
-    Media,
     CardBody,
     ListGroup,
     ListGroupItem,
-    Progress,
-    Table,
     Button,
     CardHeader
 } from './../../../components';
 import { applyColumn } from './../../../components/FloatGrid';
 
 import {
-    MetricVsTarget
-} from "../../components/Analytics/MetricVsTarget";
-import {
-    WebsitePerformance
-} from "../../components/Analytics/WebsitePerformance";
-import {
-    AudienceMetricsChart
-} from "./components/AudienceMetricsChart";
-import {
     TinyAreaChart
 } from "../../components/Analytics/TinyAreaChart";
-import {
-    SimpleLineChart
-} from "./../../Graphs/ReCharts/components/SimpleLineChart";
 
 import classes from './Analytics.scss';
 
@@ -187,6 +171,20 @@ export class Analytics extends React.Component {
                                     <ListGroupItem tag="a" href="#" action>Moong</ListGroupItem>
                                     <ListGroupItem tag="a" href="#" action>Chana</ListGroupItem>
                                 </ListGroup>                        
+                        </div>
+                        <div className="mb-2">
+                            <Card>
+                                <CardHeader className="bb-0 pt-3 pb-4 bg-none" tag="h6">
+                                    <i className="fa fa-ellipsis-v mr-2 text-body"></i> Storage Time
+                                </CardHeader>
+                                    <CardBody>
+                                        <div className="text-center mb-4">
+                                            <h2>
+                                                3 Months
+                                            </h2>
+                                        </div>
+                                    </CardBody>                                 
+                            </Card>                            
                         </div>
                     </Col>
                     <Col xl={8} lg={8}>

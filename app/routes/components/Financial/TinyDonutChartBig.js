@@ -7,6 +7,7 @@ import {
 } from 'recharts';
 
 import colors from './../../../colors';
+import { Legend } from '../../../components/recharts';
 
 const data = [
     {name: 'Group A', value: 400},
@@ -31,6 +32,7 @@ const TinyDonutChartBig = (props) => (
             data.map((entry, index) => <Cell key={ index } fill={COLORS[index % COLORS.length]} />)
         }
         </Pie>
+        <Legend />
     </PieChart>
 );
 
