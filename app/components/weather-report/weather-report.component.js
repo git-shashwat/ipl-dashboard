@@ -1,42 +1,46 @@
-import React from 'react';
-import Lottie from 'react-lottie';
-import { Card, CardTitle, CardBody } from 'reactstrap';
+import React, { useState, useEffect } from 'react';
+import { Card, CardTitle, CardBody, Alert } from 'reactstrap';
+import { createStructuredSelector } from 'reselect';
 
-import animationData from '../../lottie/2477-sun-in-a-cloud.json';
 import './weather-report.styles.scss';
+import { selectWeatherData, selectWeatherLocation, selectWeatherError } from '../../redux/weather-report/weather.selectors';
+import LocationBox from '../location-box/location-box.component';
+import WeatherData from '../weather-data/weather-data.component';
+import { connect } from 'react-redux';
 
-const WeatherReport = () => {
-    const defaultOptions = {
-        loop: false,
-        autoplay: true,
-        animationData: animationData,
-        rendererSettings: {
-          preserveAspectRatio: 'xMidYMid slice'
-        }
-    };
+const WeatherReport = ({ location, weather, errorMessage }) => {
+    const [date, setDate] = useState(null);
+
+    useEffect(() => {
+        setInterval(() => {
+            const d = new Date();
+            setDate(d.toLocaleString());
+        }, 1000);
+    })
 
     return (
         <Card>
-            <CardBody>
-                <CardTitle style={{ width: '150px' }}>
-                    <Lottie options={defaultOptions} />
-                </CardTitle>
-                <div>
-                    <h4 className="text-secondary">Block E, Sadh Nagar II, Palam, New Delhi, Delhi</h4>
-                    <h5>Saturday, 8:00 pm</h5>
-                    <h5>Haze</h5>
-                    <div className="d-flex justify-content-between">
-                        <h1>34 <sup><small>o</small></sup>C</h1>
-                        <div>
-                            <h5 className="text-secondary">Precipitation: 14%</h5>
-                            <h5 className="text-secondary">Humidity: 63%</h5>
-                            <h5 className="text-secondary">Wind: 3km/h</h5>
-                        </div>
-                    </div>
-                </div>
-            </CardBody>
+            {!!errorMessage ? (
+                <CardBody>
+                    <Alert color="danger">Unable To Fetch Weather</Alert>
+                </CardBody>
+            ) : (
+                <CardBody>
+                    <CardTitle>
+                        <LocationBox location={location} />
+                    </CardTitle>
+                    <h5>{date}</h5>
+                    <WeatherData weather={weather} />
+                </CardBody>
+            )}
         </Card>
     );
 };
 
-export default WeatherReport;
+const mapStateToProps = createStructuredSelector({
+    location: selectWeatherLocation,
+    weather: selectWeatherData,
+    errorMessage: selectWeatherError
+});
+
+export default connect(mapStateToProps)(WeatherReport);
