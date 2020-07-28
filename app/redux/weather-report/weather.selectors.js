@@ -17,6 +17,11 @@ export const selectWeatherData = createSelector(
     weather => weather.weather
 );
 
+export const selectWeatherAlerts = createSelector(
+    [selectWeather],
+    weather => weather.alerts
+);
+
 export const selectIsFetchingWeather = createSelector(
     [selectWeather],
     weather => weather.isFetchingWeather
@@ -30,4 +35,9 @@ export const selectWeatherError = createSelector(
 export const selectIsWeatherLoaded = createSelector(
     [selectWeather],
     weather => !!weather.location && !!weather.weather
+);
+
+export const selectIsAlertsLoaded = createSelector(
+    [selectWeather],
+    weather => !!weather.alerts
 );

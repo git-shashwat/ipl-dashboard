@@ -3,8 +3,10 @@ import weatherActionTypes from './weather.types';
 const INITIAL_STATE = {
     isFetchingLocation: false,
     isFetchingWeather: false,
+    isFetchingAlerts: false,
     weather: null,
     location: null,
+    alerts: null,
     errorMessage: null
 }
 
@@ -46,6 +48,26 @@ export default (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 isFetchingWeather: false,
+                errorMessage: action.payload
+            }
+
+        case weatherActionTypes.FETCH_ALERTS_START:
+            return {
+                ...state,
+                isFetchingAlerts: true
+            }
+
+        case weatherActionTypes.FETCH_ALERTS_SUCCESS:
+            return {
+                ...state,
+                isFetchingAlerts: false,
+                alerts: action.payload
+            }
+
+        case weatherActionTypes.FETCH_ALERTS_FAILURE:
+            return {
+                ...state,
+                isFetchingAlerts: false,
                 errorMessage: action.payload
             }
 

@@ -4,7 +4,7 @@ import { takeLatest, call, put, all, select } from 'redux-saga/effects';
 import Axios from 'axios';
 
 import weatherActionTypes from './weather.types';
-import { fetchLocationSuccess, fetchLocationFailure, fetchWeatherSuccess, fetchWeatherFailure } from './weather.actions';
+import { fetchLocationSuccess, fetchLocationFailure, fetchWeatherSuccess, fetchWeatherFailure, fetchAlertsSuccess, fetchAlertsFailure } from './weather.actions';
 
 export function* fetchLocationAsync({ payload: { longitude, latitude } }) {
     try {
@@ -45,9 +45,30 @@ export function* fetchWeatherStart() {
     )
 };
 
+export function* fetchAlertsAsync({ payload: { longitude, latitude } }) {
+    try {
+        const { data } = yield Axios({
+            method: 'GET',
+            url: `https://api.weatherbit.io/v2.0/alerts?lat=26.2006&lon=92.9376&key=dec20fa3663f4d98825ae04dba9475c9`
+        })
+        yield put(fetchAlertsSuccess(data));
+    } catch (err) {
+        yield put(fetchAlertsFailure(err.message));
+    }
+};
+
+export function* fetchAlertsStart() {
+    yield takeLatest(
+        weatherActionTypes.FETCH_ALERTS_START,
+        fetchAlertsAsync
+    )
+};
+
+
 export function* weatherSagas() {
     yield all([
         call(fetchLocationStart),
-        call(fetchWeatherStart)
+        call(fetchWeatherStart),
+        call(fetchAlertsStart)
     ])
 };

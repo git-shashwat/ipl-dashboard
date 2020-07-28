@@ -15,14 +15,15 @@ import { setupPage } from '../../../components/Layout/setupPage';
 import "../../../styles/components/status-lights.scss";
 import WeatherReportContainer from '../../../components/weather-report/weather-report.container';
 import WeatherAlerts from '../../../components/weather-alerts/weather-alerts.component';
-import { fetchLocationStart, fetchWeatherStart } from '../../../redux/weather-report/weather.actions';
+import { fetchLocationStart, fetchWeatherStart, fetchAlertsStart } from '../../../redux/weather-report/weather.actions';
 
-const HomePage = ({ fetchLocationStart, fetchWeatherStart }) => {
+const HomePage = ({ fetchLocationStart, fetchWeatherStart, fetchAlertsStart }) => {
     useEffect(() => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((position => {
                 fetchLocationStart(position.coords),
-                fetchWeatherStart(position.coords)
+                fetchWeatherStart(position.coords),
+                fetchAlertsStart(position.coords)
             }))
         }
     }, [navigator.geolocation]);
@@ -206,7 +207,8 @@ const HomePage = ({ fetchLocationStart, fetchWeatherStart }) => {
 
 const mapDispatchToProps = dispatch => ({
     fetchLocationStart: (coords) => dispatch(fetchLocationStart(coords)),
-    fetchWeatherStart: (coords) => dispatch(fetchWeatherStart(coords))
+    fetchWeatherStart: (coords) => dispatch(fetchWeatherStart(coords)),
+    fetchAlertsStart: (coords) => dispatch(fetchAlertsStart(coords))
 });
 
 export default compose(

@@ -29,3 +29,18 @@ export const fetchWeatherFailure = errorMessage => ({
     type: weatherActionTypes.FETCH_WEATHER_FAILURE,
     payload: errorMessage
 });
+
+export const fetchAlertsStart = coords => ({
+    type: weatherActionTypes.FETCH_ALERTS_START,
+    payload: coords
+});
+
+export const fetchAlertsSuccess = weather => ({
+    type: weatherActionTypes.FETCH_ALERTS_SUCCESS,
+    payload: weather
+});
+
+export const fetchAlertsFailure = errorMessage => ({
+    type: weatherActionTypes.FETCH_ALERTS_FAILURE,
+    payload: errorMessage
+});
