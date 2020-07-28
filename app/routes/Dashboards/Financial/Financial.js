@@ -3,13 +3,6 @@ import {
     Row,
     Card,
     CardBody,
-    CustomInput,
-    CardDeck,
-    Table,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
     CardTitle,
     ListGroup,
     ListGroupItem,
@@ -18,29 +11,9 @@ import {
 } from './../../../components';
 import { setupPage } from './../../../components/Layout/setupPage';
 
-import { HeaderMain } from "../../components/HeaderMain";
-
-import {
-    TrTableInvoices
-} from "../../components/Financial/TrTableInvoices"
-import {
-    TinyDonutChartBig
-} from "../../components/Financial/TinyDonutChartBig"
 import {
     StackedAreaChart
 } from "../../components/Financial/StackedAreaChart"
-import {
-    TrTableRecentFundings
-} from "../../components/Financial/TrTableRecentFundings"
-
-/*eslint-disable */
-const progressCompletion = [
-    "25",
-    "50",
-    "75",
-    "97"
-];
-/*eslint-enable */
 
 const Financial = () => (
     <div>

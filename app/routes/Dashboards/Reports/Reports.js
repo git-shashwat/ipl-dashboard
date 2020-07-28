@@ -10,7 +10,8 @@ import {
     Form,
     FormGroup,
     Input,
-    Button
+    Button,
+    Jumbotron
 } from './../../../components';
 import { setupPage } from './../../../components/Layout/setupPage';
 
@@ -46,38 +47,47 @@ const Reports = () => (
                 </Form>
             </Col>
         </Row>
+        <Jumbotron>
+            <h3>CORN</h3>   {/* //TODO Dynamically update this value based on the crop stored in that compartment */}
+        </Jumbotron>
         <Row className="mb-1">
             <Col xl={ 3 } lg={ 3 } className="mb-4 mb-lg-0">
-                <Card className="mb-2">
-                    <CardBody className="bb-0">
-                        <span className="d-flex justify-content-center">
-                            <CardTitle tag="h6" className="mb-0 bb-0 text-secondary">
-                                Live Temperature
-                                <br></br>
-                                (SensorID: <span className="text-primary">43t2</span>)
-                            </CardTitle>
-                        </span>
-                        <span className="d-flex justify-content-center">
-                            <div className="mb-0 bb-0">
-                                <h1>39<sup>o</sup>C</h1>
-                            </div>
-                        </span>
-                    </CardBody>
-                </Card>
-                <Card className="mb-1">
-                    <CardBody className="bb-0">
-                        <span className="d-flex justify-content-center">
-                            <CardTitle tag="h6" className="mb-0 bb-0 text-secondary">
-                                Projected Temperature
-                            </CardTitle>
-                        </span>
-                        <span className="d-flex justify-content-center">
-                            <div className="mb-0 bb-0">
-                                <h1>40<sup>o</sup>C</h1>
-                            </div>
-                        </span>
-                    </CardBody>
-                </Card>                
+                <Row>
+                    <Col xl={12} lg={12} md={6}>
+                        <Card className="mb-2">
+                            <CardBody className="bb-0">
+                                <span className="d-flex justify-content-center">
+                                    <CardTitle tag="h6" className="mb-0 bb-0 text-secondary">
+                                        Live Temperature
+                                        <br></br>
+                                        (SensorID: <span className="text-primary">43t2</span>)
+                                    </CardTitle>
+                                </span>
+                                <span className="d-flex justify-content-center">
+                                    <div className="mb-0 bb-0">
+                                        <h1>39<sup>o</sup>C</h1>
+                                    </div>
+                                </span>
+                            </CardBody>
+                        </Card>
+                    </Col>
+                    <Col xl={12} lg={12} md={6}>
+                        <Card className="mb-1">
+                            <CardBody className="bb-0">
+                                <span className="d-flex justify-content-center">
+                                    <CardTitle tag="h6" className="mb-0 bb-0 text-secondary">
+                                        Projected Temperature
+                                    </CardTitle>
+                                </span>
+                                <span className="d-flex justify-content-center">
+                                    <div className="mb-0 bb-0">
+                                        <h1>40<sup>o</sup>C</h1>
+                                    </div>
+                                </span>
+                            </CardBody>
+                        </Card>                                    
+                    </Col>
+                </Row>
             </Col>
             <Col xl={ 9 } lg={ 9 } className="mb-4 mb-lg-0">
                 <Card>

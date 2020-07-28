@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { 
-    Container,
     Row,
     Col
 } from './../../../components';
@@ -16,7 +15,7 @@ import { ProjectsSmHeader } from "../../components/Projects/ProjectsSmHeader";
 
 const Projects = (props) => (
     <React.Fragment>
-        <Container>
+        <div>
             <HeaderMain 
                 title="Projects"
                 className="mb-5 mt-4"
@@ -39,7 +38,7 @@ const Projects = (props) => (
                     }
                 </Col>
             </Row>
-        </Container>
+        </div>
     </React.Fragment>
 );
 Projects.propTypes = {

@@ -60,20 +60,12 @@ const TrTableTasksList = (props) => (
                     <DropdownMenu>
                         <DropdownItem header>Select Priority</DropdownItem>
                         <DropdownItem>
-                            <i className="fa fa-circle text-danger mr-2"></i>
-                            Big 
-                        </DropdownItem>
-                        <DropdownItem>
                             <i className="fa fa-circle text-warning mr-2"></i>
                             High 
                         </DropdownItem>
                         <DropdownItem>
                             <i className="fa fa-circle text-primary mr-2"></i>
                             Normal 
-                        </DropdownItem>
-                        <DropdownItem>
-                            <i className="fa fa-circle text-success mr-2"></i>
-                            Small 
                         </DropdownItem>
                     </DropdownMenu>
                 </UncontrolledButtonDropdown>

@@ -25,6 +25,16 @@ export const SidebarMiddleNav = () => (
             title="Crop Price Monitor"
             to="/dashboards/financial"
         />
+        <SidebarMenu.Item 
+            icon={<i className="fa fa-fw fa-tasks"></i>}
+            title="Activity Manager"
+            to="/dashboards/projects"
+        />
+        <SidebarMenu.Item 
+            icon={<i className="fa fa-fw fa-leaf"></i>}
+            title="Crop Profile"
+            to="/crop-profile"
+        />
         <SidebarMenu.Item
             icon={<i className="fa fa-fw fa-home"></i>}
             title="Dashboards"
