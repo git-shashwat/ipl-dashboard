@@ -21,21 +21,6 @@ export const DefaultSidebar = () => (
             </SidebarTrigger>
         </Sidebar.Close>
         { /* START SIDEBAR-OVERLAY: Close (x) */ }
-        
-        { /* START SIDEBAR: Only for Desktop */ }
-        <Sidebar.HideSlim>
-            <Sidebar.Section>
-                <Link to="/" className="sidebar__brand">
-                    <img 
-                        src={cwcLogo}
-                        alt="cwc logo"
-                        width="200"
-                        height="200"
-                    />
-                </Link>
-            </Sidebar.Section>
-        </Sidebar.HideSlim>
-        { /* END SIDEBAR: Only for Desktop */ }
 
         { /* START SIDEBAR: Only for Mobile */ }
         <Sidebar.MobileFluid>

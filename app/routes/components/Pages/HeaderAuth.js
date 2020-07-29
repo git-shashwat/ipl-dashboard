@@ -2,17 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import { LogoThemed } from './../LogoThemed/LogoThemed';
+import cwcLogo from '../../../images/logos/logo.png';
 
 const HeaderAuth = (props) => (
     <div className="mb-4">
-        <div className="mb-4 text-center">
+        <div className="mb-4 text-center" style={{ background: '#3BAB8B' }}>
             <Link to="/" className="d-inline-block">
                 {
                     props.icon ? (
                         <i className={ `fa fa-${ props.icon } fa-3x ${ props.iconClassName }` }></i>
                     ) : (
-                        <LogoThemed checkBackground height="150" />
+                        <img 
+                            src={cwcLogo}
+                            alt="cwc logo"
+                            height={70}
+                        />
                     )
                 }
             </Link>

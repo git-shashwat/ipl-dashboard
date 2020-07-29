@@ -22,7 +22,7 @@ SidebarTrigger.propTypes = {
 }
 SidebarTrigger.defaultProps = {
     tag: NavLink,
-    children: <i className="fa fa-bars fa-fw"></i>
+    children: <h2 className="text-white"><i className="fa fa-bars fa-fw"></i></h2>
 }
 
 const cfgSidebarTrigger = withPageConfig(SidebarTrigger);

@@ -10,27 +10,32 @@ import {
 
 import { NavbarActivityFeed } from './NavbarActivityFeed';
 import { NavbarUser } from './NavbarUser';
+import cwcLogo from '../../images/logos/logo.png';
 
 export const DefaultNavbar = () => (
             <React.Fragment>
                 { /*    First Navbar    */}
                 <Navbar
-                    light
+                    style={{ background: '#3BAB8B' }}
                     expand
                     fluid
-                    className="bg-white pb-0 pb-lg-2"
+                    className="pb-0 pb-lg-1"
                 >
                     <Nav navbar>
-                        <NavItem>
+                        <NavItem style={{ cursor: 'pointer' }}>
                             <SidebarTrigger/>
                         </NavItem>
                     </Nav>
 
-                    <h1
-                        className="h5 mb-0 mr-auto ml-2 d-none d-lg-block"
+                    <Link
+                        to="/"
                     >
-                        Warehouse Management Solution
-                    </h1>
+                        <img 
+                            src={cwcLogo}
+                            alt="cwc logo"
+                            height={60}
+                        />
+                    </Link>
 
                     <Nav navbar className="ml-auto">
                         <NavbarActivityFeed />

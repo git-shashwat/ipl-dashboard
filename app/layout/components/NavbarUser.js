@@ -10,7 +10,7 @@ import {
 const NavbarUser = (props) => (
     <NavItem { ...props }>
         <NavLink tag={ Link } to="/pages/login">
-            <i className="fa fa-power-off"></i>
+            <h3 className="text-white"><i className="fa fa-power-off"></i></h3>
         </NavLink>
     </NavItem>
 );
