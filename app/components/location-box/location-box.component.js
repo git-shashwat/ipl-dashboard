@@ -5,8 +5,7 @@ import './location-box.styles.scss';
 const LocationBox = ({ location }) => {
     return (
         <div>
-            <h5 className="text-secondary">{location}</h5>
-            <hr></hr>
+            <h6 className="text-secondary">{location.split(',')[0]}, {location.split(',')[1]}</h6>
         </div>
     );
 };

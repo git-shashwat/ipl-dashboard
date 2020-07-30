@@ -31,18 +31,12 @@ const Login = () => (
                         Email Adress
                     </Label>
                     <Input type="email" name="email" id="emailAdress" placeholder="Enter email..." className="bg-white" />
-                    <FormText color="muted">
-                        We&amp;ll never share your email with anyone else.
-                    </FormText>
                 </FormGroup>
                 <FormGroup>
                     <Label for="password">
                         Password
                     </Label>
                     <Input type="password" name="password" id="password" placeholder="Password..." className="bg-white" />
-                </FormGroup>
-                <FormGroup>
-                    <CustomInput type="checkbox" id="rememberPassword" label="Remember Password" inline />
                 </FormGroup>
                 <ThemeConsumer>
                 {
@@ -65,9 +59,6 @@ const Login = () => (
                 </Link>
             </div>
             { /* END Bottom Links */}
-            { /* START Footer */}
-            <FooterAuth />
-            { /* END Footer */}
         </EmptyLayout.Section>
     </EmptyLayout>
 );

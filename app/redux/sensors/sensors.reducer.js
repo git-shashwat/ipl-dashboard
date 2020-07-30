@@ -1,0 +1,34 @@
+import sensorsTypes from "./sensors.types";
+
+const INITIAL_STATE = {
+    isFetching: false,
+    data: null,
+    errorMessage: null
+};
+
+export default (state = INITIAL_STATE, action) => {
+    switch (action.type) {
+        case sensorsTypes.FETCH_SENSORDATA_START: 
+            return {
+                ...state,
+                isFetching: true
+            }
+
+        case sensorsTypes.FETCH_SENSORDATA_SUCCESS:
+            return {
+                ...state,
+                isFetching: false,
+                data: action.payload
+            }
+
+        case sensorsTypes.FETCH_SENSORDATA_FAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                errorMessage: action.payload
+            }
+
+        default: 
+            return state;
+    }
+} 

@@ -12,7 +12,6 @@ export function* fetchLocationAsync({ payload: { longitude, latitude } }) {
             method: 'GET',
             url: `https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?access_token=pk.eyJ1IjoicnhzaGFzaHdhdCIsImEiOiJjazBkbGNidHAwMTExM25rZnJpamdsNDF6In0.gw4VuFWLXxk6kdY_zxTPgw&limit=1`
         })
-        yield console.log(data);
         yield put(fetchLocationSuccess(data.features[0].place_name));
     } catch (err) {
         yield put(fetchLocationFailure(err.message));

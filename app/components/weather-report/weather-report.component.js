@@ -10,11 +10,13 @@ import { connect } from 'react-redux';
 
 const WeatherReport = ({ location, weather, errorMessage }) => {
     const [date, setDate] = useState(null);
+    const dayArray = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const monthMap = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
     useEffect(() => {
         setInterval(() => {
             const d = new Date();
-            setDate(d.toLocaleString());
+            setDate(`${dayArray[d.getDay()]}, ${d.getDate()} ${monthMap[d.getMonth()]}`);
         }, 1000);
     })
 
@@ -25,11 +27,12 @@ const WeatherReport = ({ location, weather, errorMessage }) => {
                     <Alert color="danger">Unable To Fetch Weather</Alert>
                 </CardBody>
             ) : (
-                <CardBody>
-                    <CardTitle>
+                <CardBody style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <div className="d-flex flex-column align-items-center">
+                        <h3>Today</h3>
+                        <h5>{date}</h5>
                         <LocationBox location={location} />
-                    </CardTitle>
-                    <h5>{date}</h5>
+                    </div>
                     <WeatherData weather={weather} />
                 </CardBody>
             )}

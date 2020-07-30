@@ -37,20 +37,20 @@ const WeatherData = ({ weather: { weather, main: { temp, pressure, humidity }, w
     
     return (
         <div>
-            <h5>{weather[0].main}</h5>
+            <h6>{weather[0].main}</h6>
             <Row>
                 <Col xl={6} lg={6}>
-                    <h2>{temp} <sup><small>o</small></sup>C</h2>
+                    <h1>{temp} <sup><small>o</small>C</sup></h1>
                     <div>
                         <Lottie options={defaultOptions} />
                     </div>
                 </Col>
                 <Col xl={6} lg={6}>
                     <div>
-                        <h5 className="text-secondary">Precipitation: {all}%</h5>
-                        <h5 className="text-secondary">Humidity: {humidity}%</h5>
-                        <h5 className="text-secondary">Pressure: {(pressure/1000).toFixed(2)} atm</h5>
-                        <h5 className="text-secondary">Wind: {(Number(speed)*3.6).toFixed(2)} km/h</h5>
+                        <h6 className="text-secondary">Precipitation: {all}%</h6>
+                        <h6 className="text-secondary">Humidity: {humidity}%</h6>
+                        <h6 className="text-secondary">Pressure: {(pressure/1000).toFixed(2)} atm</h6>
+                        <h6 className="text-secondary">Wind: {(Number(speed)*3.6).toFixed(2)} km/h</h6>
                     </div>
                 </Col>
             </Row>
