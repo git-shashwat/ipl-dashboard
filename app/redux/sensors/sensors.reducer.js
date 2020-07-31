@@ -3,7 +3,8 @@ import sensorsTypes from "./sensors.types";
 const INITIAL_STATE = {
     isFetching: false,
     data: null,
-    errorMessage: null
+    errorMessage: null,
+    alert: null
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -26,6 +27,12 @@ export default (state = INITIAL_STATE, action) => {
                 ...state,
                 isFetching: false,
                 errorMessage: action.payload
+            }
+
+        case sensorsTypes.SET_SENSOR_ALERT:
+            return {
+                ...state,
+                alert: action.payload
             }
 
         default: 

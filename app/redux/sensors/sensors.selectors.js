@@ -21,3 +21,8 @@ export const selectIsSensorsLoaded = createSelector(
     [selectSensors],
     sensors => !!sensors.data
 );
+
+export const selectSensorAlert = createSelector(
+    [selectSensors],
+    sensors => sensors.alert
+);

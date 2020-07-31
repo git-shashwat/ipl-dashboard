@@ -21,7 +21,7 @@ const WeatherReport = ({ location, weather, errorMessage }) => {
     })
 
     return (
-        <Card>
+        <Card style={{ borderRadius: '20px' }}>
             {!!errorMessage ? (
                 <CardBody>
                     <Alert color="danger">Unable To Fetch Weather</Alert>

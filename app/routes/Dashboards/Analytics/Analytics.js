@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Row, Col } from 'reactstrap';
 import _ from 'lodash';
 import {
@@ -23,33 +22,9 @@ import {
     TinyAreaChart
 } from "../../components/Analytics/TinyAreaChart";
 
-import classes from './Analytics.scss';
-
 const LAYOUT = {
     'cumulative-health-score': { h: 9, minH: 7 },
     'health-score': { md: 6, h: 7 }
-}
-
-const SessionByDevice = (props) => (
-    <div className={classes['session']}>
-        <div className={classes['session__title']}>
-            { props.title }
-        </div>
-        <div className={classes['session__values']}>
-            <div className={`${classes['session__percentage']} text-${props.color}`}>
-                { props.valuePercent }%
-            </div>
-            <div className={`${classes['session__value']} text-${props.color}`}>
-                { props.value }
-            </div>
-        </div>
-    </div>
-);
-SessionByDevice.propTypes = {
-    title: PropTypes.node,
-    color: PropTypes.string,
-    valuePercent: PropTypes.string,
-    value: PropTypes.string
 }
 
 export class Analytics extends React.Component {

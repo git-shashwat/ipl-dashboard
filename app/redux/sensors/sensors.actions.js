@@ -13,3 +13,8 @@ export const fetchSensorDataFailure = errorMessage => ({
     type: sensorsTypes.FETCH_SENSORDATA_FAILURE,
     payload: errorMessage
 });
+
+export const setSensorAlert = alert => ({
+    type: sensorsTypes.SET_SENSOR_ALERT,
+    payload: alert
+});

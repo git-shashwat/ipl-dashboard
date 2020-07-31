@@ -9,7 +9,8 @@ import {
     Col,
     Card,
     CardBody,
-    CardTitle
+    CardTitle,
+    Badge
 } from '../../../components';
 import { setupPage } from '../../../components/Layout/setupPage';
 
@@ -19,8 +20,9 @@ import WeatherAlerts from '../../../components/weather-alerts/weather-alerts.com
 import GodownSummaryContainer from '../../../components/godown-summary/godown-summary.container';
 import { fetchLocationStart, fetchWeatherStart, fetchAlertsStart } from '../../../redux/weather-report/weather.actions';
 import { fetchSensorDataStart } from '../../../redux/sensors/sensors.actions';
+import { fetchUsersStart } from '../../../redux/users/users.actions';
 
-const HomePage = ({ fetchLocationStart, fetchWeatherStart, fetchAlertsStart, fetchSensorDataStart }) => {
+const HomePage = ({ fetchLocationStart, fetchWeatherStart, fetchAlertsStart, fetchSensorDataStart, fetchUsersStart }) => {
     useEffect(() => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((position => {
@@ -30,6 +32,7 @@ const HomePage = ({ fetchLocationStart, fetchWeatherStart, fetchAlertsStart, fet
             }))
         }
         fetchSensorDataStart();
+        fetchUsersStart();
     }, []);
 
     useEffect(() => {
@@ -54,40 +57,42 @@ const HomePage = ({ fetchLocationStart, fetchWeatherStart, fetchAlertsStart, fet
         <div>
             <Row className="mb-1">
                 <Col lg={ 12 }>
-                    <h4 className="text-secondary">Dashboard</h4>
+                    <h4 className="text-primary"><b>Dashboard</b></h4>
                 </Col>
             </Row>
             <Row>
                 <Col lg={ 9 } md={8}>
                     <GodownSummaryContainer />
-<Card className="mb-3">
+                    <Card className="mb-3" style={{ borderRadius: '20px' }}>
                         <CardBody>
                         <Row>
                             <Col lg={4} md={12}>
                             <CardTitle tag="h6" className="mb-4">
-                            <h1>Godown 2</h1>
+                            <h1><b>Godown 2</b></h1>
                             <p>Location: 3L-23-2C</p>
                         </CardTitle>
                         <div className="mt-5">
                                 <Container fluid>
                                     <p className="mb-1">Condition Score</p>
+                                    <h3>Moderate</h3>
                                     <ReactSpeedometer 
                                         minValue={0}
                                         maxValue={100}
                                         value={52}
-                                        needleColor="yellow"
+                                        needleColor="black"
                                         startColor="red"
                                         segments={10}
                                         endColor="green"
                                         paddingHorizontal={4}
                                         paddingVertical={4}
+                                        valueTextFontSize={24}
                                     />
                                 </Container>
                             </div>
                             </Col>
                             <Col lg={8} md={12} className="mt-lg-5">
                             <div className="d-flex justify-content-between">
-                                <h2><span className="text-danger">Live</span> Sensor Readings</h2>
+                                <h2>Sensor Readings <Badge color="danger" style={{ paddingTop: '0.5em' }}>LIVE</Badge></h2>
                                 <h2>Status</h2>
                             </div>
                             <div className="mt-3">
@@ -139,13 +144,13 @@ const HomePage = ({ fetchLocationStart, fetchWeatherStart, fetchAlertsStart, fet
                 <Col lg={ 3 } md={4}>                
                     <div className="mb-3">
                         <div className="hr-text hr-text-left mt-2 mb-4">
-                            <span>Weather Report</span>
+                            <span className="text-warning"><b>Weather Report</b></span>
                         </div>
                         <WeatherReportContainer />                
                     </div>
                     <div>
                         <div className="hr-text hr-text-left mt-2 mb-4">
-                            <span>Weather Alerts</span>
+                            <span className="text-danger"><b>Weather Alerts</b></span>
                         </div>
                         <WeatherAlerts />
                     </div>
@@ -159,7 +164,8 @@ const mapDispatchToProps = dispatch => ({
     fetchLocationStart: (coords) => dispatch(fetchLocationStart(coords)),
     fetchWeatherStart: (coords) => dispatch(fetchWeatherStart(coords)),
     fetchAlertsStart: (coords) => dispatch(fetchAlertsStart(coords)),
-    fetchSensorDataStart: () => dispatch(fetchSensorDataStart())
+    fetchSensorDataStart: () => dispatch(fetchSensorDataStart()),
+    fetchUsersStart: () => dispatch(fetchUsersStart())
 });
 
 export default compose(

@@ -13,7 +13,7 @@ export const SidebarMiddleNav = () => (
         <SidebarMenu.Item 
             icon={<i className="fa fa-fw fa-microchip"></i>}
             title="Sensors Monitor"
-            to="/dashboards/reports"
+            to="/crop-monitor"
         />
         <SidebarMenu.Item 
             icon={<i className="fa fa-fw fa-stethoscope"></i>}

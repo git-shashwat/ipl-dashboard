@@ -40,7 +40,7 @@ const NavbarActivityFeed = (props) => (
     <UncontrolledDropdown nav inNavbar { ...props }>
         <DropdownToggle nav>
             <IconWithBadge
-                badge={ <Badge pill color="primary">4</Badge> }
+                badge={ <Badge pill color="danger">4</Badge> }
             >
                 <h3 className="text-white"><i className="fa fa-bell-o fa-fw" /></h3>
             </IconWithBadge>

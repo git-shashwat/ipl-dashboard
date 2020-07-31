@@ -1,10 +1,11 @@
 .led-red {
   margin: 0 auto;
+  border-radius: 50%;
   width: 16px;
-  height: 12px;
+  height: 16px;
   background-color: #F00;
   
-  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 12px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 16px;
   -webkit-animation: blinkRed 0.5s infinite;
   -moz-animation: blinkRed 0.5s infinite;
   -ms-animation: blinkRed 0.5s infinite;
@@ -40,11 +41,12 @@
 
 .led-yellow {
   margin: 0 auto;
+  border-radius: 50%;
   width: 16px;
-  height: 12px;
+  height: 16px;
   background-color: #FF0;
   
-  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #FF0 0 2px 12px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #FF0 0 2px 16px;
   -webkit-animation: blinkYellow 1s infinite;
   -moz-animation: blinkYellow 1s infinite;
   -ms-animation: blinkYellow 1s infinite;
@@ -80,11 +82,12 @@
 
 .led-green {
   margin: 0 auto;
+  border-radius: 50%;
   width: 16px;
-  height: 12px;
+  height: 16px;
   background-color: #ABFF00;
   
-  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #81B622 0 -1px 9px, #89FF00 0 2px 12px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #81B622 0 -1px 9px, #89FF00 0 2px 16px;
   -webkit-animation: blinkGreen 1s infinite;
   -moz-animation: blinkGreen 1s infinite;
   -ms-animation: blinkGreen 1s infinite;
@@ -121,8 +124,9 @@
 
 .led-blue {
   margin: 0 auto;
+  border-radius: 50%;
   width: 16px;
-  height: 12px;
+  height: 16px;
   background-color: #24E0FF;
   
   box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #006 0 -1px 9px, #3F8CFF 0 2px 14px;

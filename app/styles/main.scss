@@ -2,4 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;600&display=swap');
 body {
     font-family: 'Spartan', sans-serif  !important;
+    background: rgba($color: #B1B1B1, $alpha: 0.2);
+}
+
+hr {
+    background-color: #B1B1B1;
 }

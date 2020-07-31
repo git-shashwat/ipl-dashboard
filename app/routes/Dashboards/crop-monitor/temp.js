@@ -1,56 +1,4 @@
-import React from 'react';
-import faker from 'faker/locale/en';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import {
-    Row,
-    Card,
-    CardBody,
-    CardTitle,
-    Col,
-    Form,
-    FormGroup,
-    Input,
-    Button,
-    Jumbotron
-} from './../../../components';
-import { setupPage } from './../../../components/Layout/setupPage';
-
-const data = [
-    {name: faker.date.between('2015-01-01', '2015-12-31').toLocaleTimeString(), live: 32, projected: 35, amt: 35},
-    {name: faker.date.between('2015-01-01', '2015-12-31').toLocaleTimeString(), live: 43, projected: 84, amt: 84},
-    {name: faker.date.between('2015-01-01', '2015-12-31').toLocaleTimeString(), live: 52, projected: 42, amt: 42},
-    {name: faker.date.between('2015-01-01', '2015-12-31').toLocaleTimeString(), live: 82, projected: 87, amt: 87},
-    {name: faker.date.between('2015-01-01', '2015-12-31').toLocaleTimeString(), live: 70, projected: 72, amt: 72},
-    {name: faker.date.between('2015-01-01', '2015-12-31').toLocaleTimeString(), live: 93, projected: 69, amt: 69},
-    {name: faker.date.between('2015-01-01', '2015-12-31').toLocaleTimeString(), live: 84, projected: 88, amt: 88},
-];
-
-const Reports = () => (
-    <div>
-        <Row className="mb-1">
-            <Col lg={ 12 }>
-                <h4 className="text-secondary">Sensors Monitoring</h4>
-                <Form className="mb-2" inline>
-                    <FormGroup className="mr-2">
-                        <Input name="godown" type="select">
-                            <option value="godown-1">Godown 1</option>
-                            <option value="godown-2">Godown 2</option>
-                        </Input>
-                    </FormGroup>
-                    <FormGroup className="mr-2">
-                        <Input name="compartment" type="select">
-                            <option value="compartment-1">Compartment 1</option>
-                            <option value="compartment-2">Compartment 2</option>
-                        </Input>
-                    </FormGroup>  
-                    <Button type="button" color="primary">Examine</Button>                  
-                </Form>
-            </Col>
-        </Row>
-        <Jumbotron>
-            <h3>CORN</h3>   {/* //TODO Dynamically update this value based on the crop stored in that compartment */}
-        </Jumbotron>
-        <Row className="mb-1">
+<Row className="mb-1">
             <Col xl={ 3 } lg={ 3 } className="mb-4 mb-lg-0">
                 <Row>
                     <Col xl={12} lg={12} md={6}>
@@ -205,10 +153,4 @@ const Reports = () => (
                     </CardBody>
                 </Card>
             </Col>        
-        </Row>                
-    </div>
-);
-
-export default setupPage({
-    pageTitle: 'Reports'
-})(Reports);
+        </Row>

@@ -6,7 +6,7 @@ import { fetchSensorDataSuccess, fetchSensorDataFailure } from './sensors.action
 
 export function* fetchSensorDataAsync() {
     try {
-        const querySnapshot = yield database.collection('/SENSOR_DATA/godown-1/compartment-1').limit(10).orderBy("timestamp", "desc").get(); //FIXME Alter this limit to get as many latest records as you like
+        const querySnapshot = yield database.collection('/SENSOR_DATA/godown-1/compartment-1').orderBy("timestamp", "desc").limit(36).get(); //FIXME Alter this limit to get as many latest records as you like
         const data = [];
         yield querySnapshot.forEach(doc => data.push({ timestamp: doc.id, record: doc.data() }));
         yield put(fetchSensorDataSuccess(data));

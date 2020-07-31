@@ -31,6 +31,7 @@ export function* fetchWeatherAsync({ payload: { longitude, latitude } }) {
             method: 'GET',
             url: `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=a16947a5aab9949a9df758cb2047b23a&units=metric`
         })
+        yield console.log(data);
         yield put(fetchWeatherSuccess(data));
     } catch (err) {
         yield put(fetchWeatherFailure(err.message));

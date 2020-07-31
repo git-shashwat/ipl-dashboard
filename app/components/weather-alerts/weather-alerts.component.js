@@ -20,32 +20,32 @@ const WeatherAlerts = () => {
     return (
         <Card>
         <Slider {...settings}>
-            <Card outline color="danger">
+            <Card className="mt-2" outline color="primary" style={{ borderRadius: '20px' }}>
                 <CardBody>
-                    <h5><b>Heave Rain Advisory issued Aug 1 at 3:17 AM IST expiring August 3 at 12:00PM IST by IMD</b></h5>
-                    <h5>Severity: <span className="text-warning">Advisory</span></h5>
-                    <h6><a target="_blank" href="https://mausam.imd.gov.in/imd_latest/contents/all_india_forcast_bulletin.php">Read More</a></h6>
+                    <h6><b>Heave Rain Advisory issued Aug 1 at 3:17 AM IST expiring August 3 at 12:00PM IST by IMD</b></h6>
+                    <h6>Severity: <span className="text-warning">Advisory</span></h6>
+                    <p><a target="_blank" href="https://mausam.imd.gov.in/imd_latest/contents/all_india_forcast_bulletin.php">Read More</a></p>
                     </CardBody>
             </Card>
-            <Card outline color="danger">
+            <Card className="mt-2" outline color="danger" style={{ borderRadius: '20px' }}>
                 <CardBody>
-                    <h5><b>Flood Advisory issued Aug 2 at 8:00 AM IST expiring August 3 at 12:00PM IST by IMD</b></h5>
-                    <h5>Severity: <span className="text-danger">Severe</span></h5>
-                    <h6><a target="_blank" href="https://mausam.imd.gov.in/imd_latest/contents/all_india_forcast_bulletin.php">Read More</a></h6>
+                    <h6><b>Flood Advisory issued Aug 2 at 8:00 AM IST expiring August 3 at 12:00PM IST by IMD</b></h6>
+                    <h6>Severity: <span className="text-danger">Severe</span></h6>
+                    <p><a target="_blank" href="https://mausam.imd.gov.in/imd_latest/contents/all_india_forcast_bulletin.php">Read More</a></p>
                     </CardBody>
             </Card> 
-            <Card outline color="danger">
+            <Card className="mt-2" outline color="danger" style={{ borderRadius: '20px' }}>
                 <CardBody>
-                    <h5><b>Cyclone Alert issued Aug 2 at 8:00 AM IST by IMD</b></h5>
-                    <h5>Severity: <span className="text-danger">Alert</span></h5>
-                    <h6><a target="_blank" href="https://mausam.imd.gov.in/imd_latest/contents/all_india_forcast_bulletin.php">Read More</a></h6>
+                    <h6><b>Cyclone Alert issued Aug 2 at 8:00 AM IST by IMD</b></h6>
+                    <h6>Severity: <span className="text-danger">Alert</span></h6>
+                    <p><a target="_blank" href="https://mausam.imd.gov.in/imd_latest/contents/all_india_forcast_bulletin.php">Read More</a></p>
                 </CardBody>
             </Card> 
-            <Card outline color="danger">
+            <Card className="mt-2" outline color="warning" style={{ borderRadius: '20px' }}>
                 <CardBody>
-                    <h5><b>Extremely High Temperatures Advisory issued Aug 2 at 8:00 AM IST expiring August 3 at 12:00PM IST by IMD</b></h5>
-                    <h5>Severity: <span className="text-primary">Advisory</span></h5>
-                    <h6><a target="_blank" href="https://mausam.imd.gov.in/imd_latest/contents/all_india_forcast_bulletin.php">Read More</a></h6>
+                    <h6><b>Extremely High Temperatures Advisory issued Aug 2 at 8:00 AM IST expiring August 3 at 12:00PM IST by IMD</b></h6>
+                    <h6>Severity: <span className="text-primary">Advisory</span></h6>
+                    <p><a target="_blank" href="https://mausam.imd.gov.in/imd_latest/contents/all_india_forcast_bulletin.php">Read More</a></p>
                 </CardBody>
             </Card>                        
         </Slider>
