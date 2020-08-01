@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import faker from 'faker/locale/en_US';
 import _ from 'lodash';
@@ -12,7 +12,8 @@ import {
     ExtendedDropdown,
     ListGroup,
     ListGroupItem,
-    Media
+    Media,
+    Collapse
 } from './../../components';
 
 /*eslint-disable */
@@ -36,85 +37,80 @@ const activityFeedIcons = [
 ];
 /*eslint-enable */
 
-const NavbarActivityFeed = (props) => (
-    <UncontrolledDropdown nav inNavbar { ...props }>
-        <DropdownToggle nav>
-            <IconWithBadge
-                badge={ <Badge pill color="danger">4</Badge> }
-            >
-                <h3 className="text-white"><i className="fa fa-bell-o fa-fw" /></h3>
-            </IconWithBadge>
-        </DropdownToggle>
-        <ExtendedDropdown right>
-            <ExtendedDropdown.Section className="d-flex justify-content-between align-items-center">
-                <h6 className="mb-0">Activity Feed</h6>
-                <Badge pill>4</Badge>
-            </ExtendedDropdown.Section>
+const NavbarActivityFeed = (props) => {
+    const [collapseState, setCollapseState] = useState(false);
 
-            <ExtendedDropdown.Section list>
-                <ListGroup>
-                    <ListGroupItem action>
-                        <Media>
-                            <Media left>
-                                { activityFeedIcons[0] }
-                            </Media>
-                            <Media body>
-                                <p>Godown 1 sensors are functioning nominally. That's great!</p>
-                                <div className="small mt-2">
-                                    { faker.date.past().toString() }
-                                </div>
-                            </Media>
-                        </Media>
-                    </ListGroupItem>
-                    <ListGroupItem action>
-                        <Media>
-                            <Media left>
-                                { activityFeedIcons[1] }
-                            </Media>
-                            <Media body>
-                                <p>Godown 2 Temperature sensor is not giving readings. Please examine.</p>
-                                <div className="small mt-2">
-                                    { faker.date.past().toString() }
-                                </div>
-                            </Media>
-                        </Media>
-                    </ListGroupItem>
-                    <ListGroupItem action>
-                        <Media>
-                            <Media left>
-                                { activityFeedIcons[2] }
-                            </Media>
-                            <Media body>
-                                <p>Humidity in Godown 3 seems to be higher than nominal. Give a check.</p>
-                                <div className="small mt-2">
-                                    { faker.date.past().toString() }
-                                </div>
-                            </Media>
-                        </Media>
-                    </ListGroupItem>
-                    <ListGroupItem action>
-                        <Media>
-                            <Media left>
-                                { activityFeedIcons[3] }
-                            </Media>
-                            <Media body>
-                                <p>Weather conditions are good for outside placement of crops.</p>
-                                <div className="small mt-2">
-                                    { faker.date.past().toString() }
-                                </div>
-                            </Media>
-                        </Media>
-                    </ListGroupItem>
-                </ListGroup>
-            </ExtendedDropdown.Section>
+    const handleClick = () => {
+        setCollapseState(!collapseState);
+    };
 
-            <ExtendedDropdown.Section className="text-center" tag={ Link} to="#">
-                See All Notifications
-                <i className="fa fa-angle-right fa-fw ml-2" />
-            </ExtendedDropdown.Section>
-        </ExtendedDropdown>
-    </UncontrolledDropdown>
-);
+    return (
+        <UncontrolledDropdown nav inNavbar { ...props }>
+            <DropdownToggle nav onClick={handleClick}>
+                <IconWithBadge
+                    badge={ <Badge pill color="danger">4</Badge> }
+                >
+                    <h3 className="text-white"><i className="fa fa-bell-o fa-fw" /></h3>
+                </IconWithBadge>
+            </DropdownToggle>
+            <ExtendedDropdown right>
+                <ExtendedDropdown.Section className="d-flex justify-content-between align-items-center">
+                    <h6 className="mb-0">Activity Feed</h6>
+                    <Badge pill>4</Badge>
+                </ExtendedDropdown.Section>
+    
+                <Collapse isOpen={collapseState} list>
+                    <ListGroup>
+                        <ListGroupItem action>
+                            <Media>
+                                <Media left>
+                                    { activityFeedIcons[0] }
+                                </Media>
+                                <Media body>
+                                    <p>Godown 1 sensors are functioning nominally. That's great!</p>
+                                    <div className="small mt-2">
+                                        { faker.date.past().toString() }
+                                    </div>
+                                </Media>
+                            </Media>
+                        </ListGroupItem>
+                        <ListGroupItem action>
+                            <Media>
+                                <Media left>
+                                    { activityFeedIcons[1] }
+                                </Media>
+                                <Media body>
+                                    <p>Godown 2 Temperature sensor is not giving readings. Please examine.</p>
+                                    <div className="small mt-2">
+                                        { faker.date.past().toString() }
+                                    </div>
+                                </Media>
+                            </Media>
+                        </ListGroupItem>
+                        <ListGroupItem action>
+                            <Media>
+                                <Media left>
+                                    { activityFeedIcons[2] }
+                                </Media>
+                                <Media body>
+                                    <p>Humidity in Godown 3 seems to be higher than nominal. Give a check.</p>
+                                    <div className="small mt-2">
+                                        { faker.date.past().toString() }
+                                    </div>
+                                </Media>
+                            </Media>
+                        </ListGroupItem>
+                    </ListGroup>
+                </Collapse>
+    
+                <ExtendedDropdown.Section className="text-center" tag={ Link} to="#">
+                    See All Notifications
+                    <i className="fa fa-angle-right fa-fw ml-2" />
+                </ExtendedDropdown.Section>
+            </ExtendedDropdown>
+        </UncontrolledDropdown>
+    );
+}
 NavbarActivityFeed.propTypes = {
     className: PropTypes.string,
     style: PropTypes.object

@@ -1,16 +1,11 @@
 import React from 'react';
-import faker from 'faker/locale/en';
+import { createStructuredSelector } from 'reselect';
 import { Bar, Line } from 'react-chartjs-2';
 import { AiOutlineDown } from 'react-icons/ai';
 import { BsDroplet } from 'react-icons/bs';
 import { FaRegLightbulb, FaThermometerHalf } from 'react-icons/fa';
-// import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import {
     Row,
-    Card,
-    CardBody,
-    CardTitle,
-    ListGroup,
     ListGroupItem,
     Col,
     ButtonToolbar,
@@ -20,35 +15,90 @@ import {
     DropdownToggle,
     DropdownItem,
     Button,
-    // Jumbotron
+    Alert
 } from '../../../components';
 import { setupPage } from '../../../components/Layout/setupPage';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { selectSensorsData } from '../../../redux/sensors/sensors.selectors';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { filterSensorDataByTag } from '../../../redux/sensors/sensors.utils';
 
-// import '../../../styles/components/godown-summary.styles.scss';
+const CropMonitorPage = ({ sensorsData }) => {
+    const [focussedSensorData, setFocussedSensorData] = useState({
+        name: '',
+        icon: '',
+        unit: '',
+        theme: '',
+        data: [],
+        labels: [],
+        liveReading: null,
+        maxReading: null,
+        minReading: null,
+        percentChange: null,
+        upTime: null,
+        status: ''
+    });
 
-const labels = [
-    faker.date.between('2015-01-01', '2015-12-31').toLocaleTimeString(),
-    faker.date.between('2015-01-01', '2015-12-31').toLocaleTimeString(),
-    faker.date.between('2015-01-01', '2015-12-31').toLocaleTimeString(),
-    faker.date.between('2015-01-01', '2015-12-31').toLocaleTimeString(),
-    faker.date.between('2015-01-01', '2015-12-31').toLocaleTimeString(),
-    faker.date.between('2015-01-01', '2015-12-31').toLocaleTimeString(),
-    faker.date.between('2015-01-01', '2015-12-31').toLocaleTimeString(),
-];
-
-const CropMonitorPage = () => {
-    const defaultOptions = {
-        loop: false,
-        autoplay: true,
-        rendererSettings: {
-          preserveAspectRatio: 'xMidYMid slice'
+    useEffect(() => {
+        if(sensorsData.length !== 0) {
+            const { data, labels } = filterSensorDataByTag(sensorsData, 'temperature');
+            setFocussedSensorData({
+                name: 'Temperature',
+                unit: 'oC',
+                icon: 'fa fa-thermometer-half',
+                theme: 'orange',
+                data,
+                labels,
+                liveReading: data[0],
+                maxReading: Math.max(...data),
+                minReading: Math.min(...data),
+                percentChange: (Math.abs(data[0]-data[1])/data[0] * 100).toFixed(2),
+                upTime: labels[0] - labels[labels.length - 1]
+            });
         }
-    };
+    }, [sensorsData]);
+
+    const handleClick = (e, tag) => {
+        const { data, labels } = filterSensorDataByTag(sensorsData, tag);
+        const units = {
+            temperature: 'oC',
+            humidity: 'air g.kg-1',
+            light: 'units'
+        };
+        const icons = {
+            temperature: 'fa fa-thermometer-half',
+            humidity: 'fa fa-tint',
+            light: 'fa fa-lightbulb-o'
+        };
+        const themes = {
+            temperature: 'orange',
+            humidity: 'primary',
+            light: 'yellow'
+        };
+        setFocussedSensorData({
+            name: tag.toUpperCase(),
+            data,
+            labels,
+            icon: icons[tag],
+            theme: themes[tag],
+            unit: units[tag],
+            liveReading: data[0],
+            maxReading: Math.max(...data),
+            minReading: Math.min(...data),
+            percentChange: (Math.abs(data[0]-data[1])/data[0] * 100).toFixed(2),
+            upTime: labels[0] - labels[labels.length - 1]
+        });
+    }
+
     return (
         <div>
-            <Row className="mb-1">
+            {!!sensorsData ? (
+                <div>
+                <Row className="mb-1">
                 <Col lg={ 12 }>
-                    <div className="d-flex mt-3 mb-5">
+                    <div className="d-flex mt-3 mb-3">
                         <h4 className="text-primary"><b>Sensors Monitor Dashboard</b></h4>
                         <ButtonToolbar className="ml-auto">
                             <ButtonGroup className="align-self-start mr-2">
@@ -134,38 +184,46 @@ const CropMonitorPage = () => {
                     <Col xl={9} lg={9}>
                     <div className="d-flex flex-column pt-lg-4 pl-lg-4">
                         <h2 className="text-secondary"><b>Compartment</b></h2>
-                        <h1 className="text-warning"><b>Temperature</b></h1>
+                        <h1 className={`text-${focussedSensorData.theme}`}><b>{focussedSensorData.name}</b></h1>
                     </div>
                     <div className="mt-lg-4 d-flex flex-column align-items-center">
                         <div className="d-flex justify-content-between mb-lg-2">
-                            <h1 style={{ fontSize: '5rem' }}><i className="fa fa-thermometer-half text-orange"></i> 37<sup><small>o</small>C</sup></h1>
+                            <h1 style={{ fontSize: '5rem' }}><i className={`${focussedSensorData.icon} text-${focussedSensorData.theme}`}></i> {focussedSensorData.liveReading}<small>{focussedSensorData.unit}</small></h1>
                             <div className="d-flex flex-column ml-5">
-                                <h3>Max: 38.21 <sup><small>o</small>C</sup></h3> 
-                                <h3>Min: 34.01 <sup><small>o</small>C</sup></h3>    
+                                <h3>Max: {focussedSensorData.maxReading} <small>{focussedSensorData.unit}</small></h3> 
+                                <h3>Min: {focussedSensorData.minReading} <small>{focussedSensorData.unit}</small></h3>    
                             </div>
                         </div>
                         <div className="mb-1 text-success">
                             <i className="fa mr-1 fa-caret-up"></i>
-                            2.50%
+                            {focussedSensorData.percentChange} %
                         </div>
-                        <div className="pt-lg-3 pb-lg-6">
+                        <div className="mt-2 mb-1 d-flex flex-column">
+                            <h6><b>Sensor Up-Time</b>: {focussedSensorData.upTime}</h6> {/* TODO yaha current timestamp - earliest timestamp krna hai */}
+                            <h6><b>Status</b>: Active</h6>
+                        </div>
+                        <div className="mt-4">
+                            <h5><b>Max Projected Value: {focussedSensorData.liveReading + 2.37} <smal>{focussedSensorData.unit}</smal></b></h5>
+                            <h5><b>Min Projected Value: {focussedSensorData.liveReading - 2.37} <smal>{focussedSensorData.unit}</smal></b></h5>
+                        </div>
+                        <div className="mt-2 pt-lg-3 pb-lg-5">
                         <Line 
                             data={{
-                                labels: labels,
+                                labels: focussedSensorData.labels,
                                 datasets: [{
-                                    label: 'timestamp',
+                                    label: 'Sensor Readings',
                                     fill: false,
                                     backgroundColor: 'rgb(255, 99, 132)',
                                     borderColor: 'rgb(255, 99, 132)',
-                                    data: [0, 10, 5, 2, 20, 30, 45],
+                                    data: focussedSensorData.data,
                                     radius: '20px'
                                 }]
                             }}
                             legend={{
-                                display: false
+                                display: true
                             }}
-                            width={900}
-                            height={300}
+                            width={1000}
+                            height={400}
                             options={{ 
                                 maintainAspectRatio: false, 
                                 responsive: true, 
@@ -187,6 +245,9 @@ const CropMonitorPage = () => {
                                         },
                                         display: true
                                     }]
+                                },
+                                tooltips: {
+                                    enabled: true
                                 }
                             }}
                         />                
@@ -199,7 +260,7 @@ const CropMonitorPage = () => {
                             <div style={{ padding: '2em 2em', paddingBottom: '16em' }}>
                                 <Row>
                                     <Col xl={12} lg={12} md={4} sm={4}>
-                                        <ListGroupItem style={{ borderRadius: '20px', backgroundColor: '#167D7F', cursor: 'pointer' }} className="mt-3" active action>
+                                        <ListGroupItem style={{ borderRadius: '20px', backgroundColor: '#a7e2fa', cursor: 'pointer' }} className="mt-3" onClick={(e) => handleClick(e, 'temperature')} action>
                                             <Row>
                                                 <Col xl={3} lg={3}>
                                                 <h1 style={{ fontSize: '3rem' }}>
@@ -207,13 +268,13 @@ const CropMonitorPage = () => {
                                                 </h1>
                                                 </Col>
                                                 <Col xl={9} lg={9}>
-                                                    <h4 className="pt-4" style={{ color: '#DDFFE7' }}><b>Temperature</b></h4>
+                                                    <h4 className="pt-4" style={{ color: '#167D7F' }}><b>Temperature</b></h4>
                                                 </Col>
                                             </Row>
                                         </ListGroupItem>
                                     </Col>
                                     <Col xl={12} lg={12} md={4} sm={4}>
-                                        <ListGroupItem style={{ borderRadius: '20px', backgroundColor: '#a7e2fa', cursor: 'pointer' }} className="mt-3">
+                                        <ListGroupItem style={{ borderRadius: '20px', backgroundColor: '#a7e2fa', cursor: 'pointer' }} className="mt-3" onClick={(e) => handleClick(e, 'humidity')} >
                                             <Row>
                                                 <Col xl={3} lg={3}>
                                                     <h1 style={{ fontSize: '3rem' }}>
@@ -227,7 +288,7 @@ const CropMonitorPage = () => {
                                         </ListGroupItem>
                                     </Col>
                                     <Col xl={12} lg={12} md={4} sm={4}>
-                                        <ListGroupItem style={{ borderRadius: '20px', backgroundColor: '#a7e2fa', cursor: 'pointer' }} className="mt-3">
+                                        <ListGroupItem style={{ borderRadius: '20px', backgroundColor: '#a7e2fa', cursor: 'pointer' }} className="mt-3" onClick={(e) => handleClick(e, 'light')} >
                                             <Row>
                                                 <Col xl={3} lg={3}>
                                                     <h1 style={{ fontSize: '3rem' }}>
@@ -245,11 +306,22 @@ const CropMonitorPage = () => {
                         </div>
                     </Col>
                 </Row>
-            </div>                
+            </div>    
+                </div>
+            ) : (
+                <Alert></Alert>
+            )}              
         </div>
     );
 }
 
-export default setupPage({
-    pageTitle: 'Crop Monitor'
-})(CropMonitorPage);
+const mapStateToProps = createStructuredSelector({
+    sensorsData: selectSensorsData
+});
+
+export default compose(
+    setupPage({
+        pageTitle: 'Crop Monitor'
+    }),
+    connect(mapStateToProps)
+)(CropMonitorPage);

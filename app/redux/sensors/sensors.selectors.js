@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import { filterSensorDataByTag } from './sensors.utils';
 
 export const selectSensors = state => state.sensors;
 

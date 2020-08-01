@@ -71,11 +71,14 @@ const MainHeader = ({ alert, pushAlertNotificationStart, fcmTokens }) => {
                 <Link
                     to="/"
                 >
-                    <img 
-                        src={cwcLogo}
-                        alt="cwc logo"
-                        height={60}
-                    />
+                    <div className="d-flex align-items-center">
+                        <img 
+                            src="https://i.ibb.co/0QpsZmX/Group-2.png"
+                            alt="cwc logo"
+                            height={60}
+                        />
+                        <h3 className="ml-3 text-black"><b>Brainiacs101</b></h3>
+                    </div>
                 </Link>
 
                 <Nav navbar className="ml-auto">

@@ -111,7 +111,7 @@ const GodownSummary = ({ sensorData, weatherData: { main: { temp = 25 , humidity
                                     )}
                                 </Col>
                             </Row>
-                            <h2 className="mb-0">{sensorData[0].record.temperature.data} <small><sup>o</sup>C</small></h2>
+                            <h2 className="mb-0">{sensorData[0].record.temperature.data.toFixed(2)} <small><sup>o</sup>C</small></h2>
                         </CardTitle>     
                     </div>
                     <hr></hr>
