@@ -1,15 +1,10 @@
 import React from 'react';
-import faker from 'faker/locale/en_US';
 import { Link } from 'react-router-dom';
 
 import { 
     Sidebar,
-    UncontrolledButtonDropdown,
     Avatar,
     AvatarAddOn,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem
 } from './../../../components';
 import avatarImg from '../../../images/avatars/46.jpg';
 
@@ -23,47 +18,12 @@ const SidebarTopA = () => (
                         <Avatar.Image
                             size="lg"
                             src={ avatarImg }
-                            addOns={[
-                                <AvatarAddOn.Icon 
-                                    className="fa fa-circle"
-                                    color="white"
-                                    key="avatar-icon-bg"
-                                />,
-                                <AvatarAddOn.Icon 
-                                    className="fa fa-circle"
-                                    color="success"
-                                    key="avatar-icon-fg"
-                                />
-                            ]}
                         />
                     </Sidebar.HideSlim>
                 </Link>
-                
-                <UncontrolledButtonDropdown>
-                    <DropdownToggle color="link" className="pl-0 pb-0 btn-profile sidebar__link">
-                        Ramesh Kumar
-                        <i className="fa fa-angle-down ml-2"></i>
-                    </DropdownToggle>
-                    <DropdownMenu persist>
-                    <DropdownItem header>
-                        Ramesh Kumar
-                    </DropdownItem>
-                    <DropdownItem divider />
-                    <DropdownItem tag={ Link } to="/apps/profile-details">
-                        My Profile
-                    </DropdownItem>
-                    <DropdownItem tag={ Link } to="/apps/billing-edit">
-                        Billings
-                    </DropdownItem>
-                    <DropdownItem divider />
-                    <DropdownItem tag={ Link } to="/pages/login">   {/*TODO Yaha firebase signout wala kaam krna hai dost*/ }
-                        <i className="fa fa-fw fa-sign-out mr-2"></i>
-                        Sign Out
-                    </DropdownItem>
-                    </DropdownMenu>
-                </UncontrolledButtonDropdown>
-                <div className="small sidebar__link--muted">
-                    Warehouse Manager
+                <h6>Vipul</h6>
+                <div className="sidebar__link--muted">
+                    Not an IPL fan!
                 </div>
             </Sidebar.Section>
         </Sidebar.HideSlim>

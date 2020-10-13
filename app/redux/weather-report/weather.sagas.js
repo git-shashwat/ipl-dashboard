@@ -1,16 +1,16 @@
 //FIXME add api keys as env vars
 
-import { takeLatest, call, put, all, select } from 'redux-saga/effects';
+import { takeLatest, call, put, all } from 'redux-saga/effects';
 import Axios from 'axios';
 
 import weatherActionTypes from './weather.types';
 import { fetchLocationSuccess, fetchLocationFailure, fetchWeatherSuccess, fetchWeatherFailure, fetchAlertsSuccess, fetchAlertsFailure } from './weather.actions';
 
-export function* fetchLocationAsync({ payload: { longitude, latitude } }) {
+export function* fetchLocationAsync() {
     try {
         const { data } = yield Axios({
             method: 'GET',
-            url: `https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?access_token=pk.eyJ1IjoicnhzaGFzaHdhdCIsImEiOiJjazBkbGNidHAwMTExM25rZnJpamdsNDF6In0.gw4VuFWLXxk6kdY_zxTPgw&limit=1`
+            url: `https://api.mapbox.com/geocoding/v5/mapbox.places/77.097008,28.582861.json?access_token=pk.eyJ1IjoicnhzaGFzaHdhdCIsImEiOiJjazBkbGNidHAwMTExM25rZnJpamdsNDF6In0.gw4VuFWLXxk6kdY_zxTPgw&limit=1`
         })
         yield put(fetchLocationSuccess(data.features[0].place_name));
     } catch (err) {
@@ -25,11 +25,11 @@ export function* fetchLocationStart() {
     )
 };
 
-export function* fetchWeatherAsync({ payload: { longitude, latitude } }) {
+export function* fetchWeatherAsync() {
     try {
         const { data } = yield Axios({
             method: 'GET',
-            url: `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=a16947a5aab9949a9df758cb2047b23a&units=metric`
+            url: `https://api.openweathermap.org/data/2.5/weather?lat=28.582861&lon=77.097008&appid=a16947a5aab9949a9df758cb2047b23a&units=metric`
         })
         yield console.log(data);
         yield put(fetchWeatherSuccess(data));
@@ -45,7 +45,7 @@ export function* fetchWeatherStart() {
     )
 };
 
-export function* fetchAlertsAsync({ payload: { longitude, latitude } }) {
+export function* fetchAlertsAsync() {
     try {
         const { data } = yield Axios({
             method: 'GET',

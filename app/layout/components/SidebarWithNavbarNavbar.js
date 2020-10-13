@@ -7,13 +7,11 @@ import {
     NavItem,
     NavLink,
     NavbarToggler,
-    UncontrolledCollapse,
     SidebarTrigger,
     ThemeConsumer
 } from './../../components';
 
 import { NavbarActivityFeed } from './NavbarActivityFeed';
-import { NavbarMessages } from './NavbarMessages';
 import { NavbarUser } from './NavbarUser';
 import { LogoThemed } from './../../routes/components/LogoThemed/LogoThemed';
 

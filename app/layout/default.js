@@ -13,7 +13,6 @@ import './../styles/plugins/plugins.css';
 
 import {
     RoutedNavbars,
-    RoutedSidebars,
 } from './../routes';
 
 const favIcons = [
@@ -40,10 +39,6 @@ class AppLayout extends React.Component {
                     <Layout.Navbar>
                         <RoutedNavbars />
                     </Layout.Navbar>
-                    { /* -------- Sidebar ------------*/ }
-                    <Layout.Sidebar>
-                        <RoutedSidebars />
-                    </Layout.Sidebar>
 
                     { /* -------- Content ------------*/ }
                     <Layout.Content>
@@ -56,3 +51,5 @@ class AppLayout extends React.Component {
 }
 
 export default AppLayout;
+
+//TODO This is the layout file

@@ -2,10 +2,10 @@ import React from 'react';
 
 import './location-box.styles.scss';
 
-const LocationBox = ({ location }) => {
+const LocationBox = () => {
     return (
         <div>
-            <h6 className="text-secondary">{location.split(',')[0]}, {location.split(',')[1]}</h6>
+            <h6 className="text-secondary">Palam, New Delhi</h6>
         </div>
     );
 };
