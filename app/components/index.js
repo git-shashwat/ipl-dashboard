@@ -1,6 +1,4 @@
-import Divider from './Divider';
 import EmptyLayout from './EmptyLayout';
-import ExtendedDropdown from './ExtendedDropdown';
 import FloatGrid from './FloatGrid';
 import Layout, {
     withPageConfig,
@@ -11,21 +9,11 @@ import Layout, {
 import Nav from './Nav';
 import Navbar from './Navbar';
 import NavbarThemeProvider from './NavbarThemeProvider';
-import NestedDropdown from './NestedDropdown';
-import PageLoader from './PageLoader';
 import Sidebar from './Sidebar';
 import SidebarMenu from './SidebarMenu';
-import SidebarTrigger from './SidebarTrigger';
 import {
-    ThemeClass,
     ThemeProvider,
-    ThemeSelector,
-    ThemeConsumer,
 } from './Theme';
-import Tools from './Tools';
-import UncontrolledModal from './UncontrolledModal';
-import UncontrolledPopover from './UncontrolledPopover';
-import UncontrolledTabs from './UncontrolledTabs';
 // Export non overriden Reactstrap components
 export {
     Alert,
@@ -102,29 +90,17 @@ export {
 } from 'reactstrap';
 export {
     //App,
-    Divider,
     EmptyLayout,
-    ExtendedDropdown,
     FloatGrid,
     Layout,
     Nav,
     Navbar,
     NavbarThemeProvider,
-    NestedDropdown,
     withPageConfig,
     setupPage,
-    PageLoader,
     PageConfigConsumer,
     PageConfigProvider,
     Sidebar,
     SidebarMenu,
-    SidebarTrigger,
-    ThemeClass,
-    ThemeConsumer,
     ThemeProvider,
-    ThemeSelector,
-    Tools,
-    UncontrolledPopover,
-    UncontrolledTabs,
-    UncontrolledModal,
 };
