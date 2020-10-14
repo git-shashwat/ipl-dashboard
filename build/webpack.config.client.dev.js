@@ -51,7 +51,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader'
             },
@@ -69,7 +69,7 @@ module.exports = {
                     },
                     { loader: 'postcss-loader' }
                 ],
-                exclude: [path.resolve(config.srcDir, 'styles')],
+                exclude: [config.srcDir],
                 include: [config.srcDir]
             },
             {
@@ -91,7 +91,7 @@ module.exports = {
                         }
                     }
                 ],
-                exclude: [path.resolve(config.srcDir, 'styles')],
+                exclude: [config.srcDir],
                 include: [config.srcDir]
             },
             // Global Styles
@@ -117,7 +117,7 @@ module.exports = {
                         }
                     }
                 ],
-                include: [path.resolve(config.srcDir, 'styles')]
+                include: [config.srcDir]
             },
             // Fonts
             {
@@ -144,7 +144,7 @@ module.exports = {
         historyApiFallback: {
             index: BASE_PATH
         },
-        host: '0.0.0.0',
-        port: 4100
+        host: '127.0.0.1',
+        port: 3000
     }
 }

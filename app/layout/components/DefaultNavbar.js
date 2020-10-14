@@ -14,17 +14,16 @@ const MainHeader = () => {
         <React.Fragment>
             { /*    First Navbar    */}
             <Navbar
-                style={{ background: '#19388A' }}
+                style={{ background: '#001F3D' }}
                 expand
                 fluid
-                className="pt-3 pb-lg-1"
             >
             <Nav navbar>
                 <NavItem>
                     <Link
                         to="/"
                     >
-                        <div className="d-flex align-items-center">
+                        <div className="d-flex mt-2">
                             <h3 className="text-white"><b>atlan IPL</b></h3>
                         </div>
                     </Link>                

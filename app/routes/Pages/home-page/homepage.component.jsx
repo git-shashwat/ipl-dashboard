@@ -14,22 +14,24 @@ import {
 import { setupPage } from '../../../components/Layout/setupPage';
 
 import "../../../styles/components/status-lights.scss";
-import "../../../styles/components/home-page.styles.scss";
-import WeatherReport from '../../../components/weather-report/weather-report.component';
-import WeatherAlerts from '../../../components/weather-alerts/weather-alerts.component';
+import "./homepage.styles.scss";
+import Profile from '../../../components/profile/profile.component';
 
 const HomePage = () => {
 
     return (
         <div className="main-container">
-            <Row className="mb-1">
-                <Col lg={ 12 }>
-                    <h4 className="text-primary"><b>Dashboard</b></h4>
-                </Col>
-            </Row>
             <Row>
-                <Col lg={ 9 } md={8}>
-                    <Card className="mb-3" style={{ borderRadius: '20px' }}>
+                <Col lg={ 3 } md={4} className="order-md-2">                
+                    <div className="mb-3">
+                        <div className="hr-text hr-text-left mt-2 mb-1">
+                            <h4 className="text-white"><b>Your Interests 🚀</b></h4>
+                        </div>
+                        <Profile />                
+                    </div>
+                </Col>            
+                <Col lg={ 9 } md={8} className="order-md-1">
+                    <Card className="mb-3">
                         <CardBody>
                         <Row>
                             <Col lg={4} md={12}>
@@ -106,20 +108,6 @@ const HomePage = () => {
                         </Row>
                         </CardBody>
                     </Card>
-                </Col>
-                <Col lg={ 3 } md={4}>                
-                    <div className="mb-3">
-                        <div className="hr-text hr-text-left mt-2 mb-4">
-                            <span className="text-warning"><b>Weather Report</b></span>
-                        </div>
-                        <WeatherReport />                
-                    </div>
-                    <div>
-                        <div className="hr-text hr-text-left mt-2 mb-4">
-                            <span className="text-danger"><b>Weather Alerts</b></span>
-                        </div>
-                        <WeatherAlerts />
-                    </div>
                 </Col>
             </Row>
         </div>

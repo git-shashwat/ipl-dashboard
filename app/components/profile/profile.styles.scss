@@ -1,0 +1,20 @@
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+
+    .personality-strip {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+
+        &__badge {
+            margin-right: 10px;
+            background-color: #1863D6;
+            font-size: larger;
+            padding: 0.5rem;
+        }
+    }
+}

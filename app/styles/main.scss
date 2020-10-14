@@ -2,9 +2,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
 body {
     font-family: 'Kumbh Sans', sans-serif   !important;
-    background: rgba($color: #B1B1B1, $alpha: 0.2);
+    background-color: #001F3D;
+    color: #fff;
 }
 
 hr {
-    background-color: #B1B1B1;
+    background-color: #B6CBE1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #fff;
+}
+
+.text-secondary {
+    color: #B6CBE1  !important;
+}
+
+.card {
+    border-radius: 50px;
+    background: #001F3D;
+    box-shadow:  20px 20px 60px #00172d, 
+                 -20px -20px 60px #00274d;
 }
