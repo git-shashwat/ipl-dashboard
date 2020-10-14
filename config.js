@@ -18,10 +18,10 @@ var config = {
     srcHtmlLayout:          path.join(root, 'app', 'index.html'),
 
     // Site Config ====================================================
-    siteTitle:              'CWC WMS',
-    siteDescription:        'A simple IOT based Dashboard',
+    siteTitle:              'atlan IPL',
+    siteDescription:        'Built for Vipul',
     siteCannonicalUrl:      'http://localhost:4100',
-    siteKeywords:           'react cwc wms',
+    siteKeywords:           'react cricket',
     scssIncludes:           []
 }
 

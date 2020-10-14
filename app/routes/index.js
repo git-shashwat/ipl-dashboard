@@ -6,7 +6,7 @@ import {
 } from 'react-router';
 
 // ----------- Pages Imports ---------------
-import HomePage from './Dashboards/home-page/homepage.component'; 
+import HomePage from './Pages/home-page/homepage.component'; 
 
 // ----------- Layout Imports ---------------
 import { DefaultNavbar } from './../layout/components/DefaultNavbar';

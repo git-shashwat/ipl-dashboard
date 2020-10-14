@@ -6,7 +6,7 @@ import rainyWeatherAnime from '../../lottie/2074-rain.json';
 import sunnyWeatherAnime from '../../lottie/22190-sunny-day.json';
 import nightWeatherAnime from '../../lottie/12572-moon-stars.json';
 
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Container } from 'reactstrap';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
@@ -36,7 +36,7 @@ const WeatherData = () => {
     }, []);
     
     return (
-        <div>
+        <Container>
             <h6>Haze</h6>
             <Row>
                 <Col xl={6} lg={6}>
@@ -54,7 +54,7 @@ const WeatherData = () => {
                     </div>
                 </Col>
             </Row>
-        </div>
+        </Container>
     );
 };
 

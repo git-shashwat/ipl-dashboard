@@ -14,13 +14,14 @@ import {
 import { setupPage } from '../../../components/Layout/setupPage';
 
 import "../../../styles/components/status-lights.scss";
+import "../../../styles/components/home-page.styles.scss";
 import WeatherReport from '../../../components/weather-report/weather-report.component';
 import WeatherAlerts from '../../../components/weather-alerts/weather-alerts.component';
 
 const HomePage = () => {
 
     return (
-        <div>
+        <div className="main-container">
             <Row className="mb-1">
                 <Col lg={ 12 }>
                     <h4 className="text-primary"><b>Dashboard</b></h4>
