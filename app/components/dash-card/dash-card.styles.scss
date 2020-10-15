@@ -1,4 +1,5 @@
 .stat-logo {
+    align-items: center;
     border-radius: 50px;
     background: rgba(248,80,50,1);
     background: linear-gradient(bottom, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 54%, rgba(240,47,23,1) 71%, rgba(246,41,12,1) 83%, rgba(231,56,39,1) 100%);
@@ -6,10 +7,9 @@
                  -6px -6px 12px #002c56;
     display: flex;
     flex-direction: column;
-    margin: 1em 1em;    
-    padding: 0.25em 0.25em;
-    width: max-content !important;
-    height: max-content !important;
+    font-weight: 400;
+    justify-content: center;
+    margin: 1em 1em;   
     
     &__icon {
         color: #F9D030;

@@ -17,7 +17,7 @@ const Yellove = () => {
         <div className="mt-2">
             <Row>
                 <Col lg={8} md={12}>
-                    <Card className="neumorphic-card mb-3">
+                    <Card className="mb-3" style={{ zIndex: '-1', backgroundColor: 'transparent', borderRadius: '50px' }}>
                         <Container fluid>
                             <Bar 
                                 data={{
@@ -25,7 +25,7 @@ const Yellove = () => {
                                     datasets: [{
                                         label: 'Winning %',
                                         fill: false,
-                                        backgroundColor: ['#135595', '#F9D030', '#135595', '#135595', '#F9D030'],
+                                        backgroundColor: ['#135595', '#F9D030', '#135595', '#F9D030', '#135595'],
                                         borderColor: '#135595',
                                         data: [1, 2, 3, 4, 5],
                                         radius: '20px'

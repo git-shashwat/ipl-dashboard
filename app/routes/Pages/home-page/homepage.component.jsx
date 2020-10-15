@@ -4,6 +4,7 @@ import { compose } from 'redux';
 import {
     Row,
     Col,
+    Container,
 } from 'reactstrap';
 import { setupPage } from '../../../components/Layout/setupPage';
 
@@ -11,6 +12,7 @@ import "../../../styles/components/status-lights.scss";
 import "./homepage.styles.scss";
 import Profile from '../../../components/profile/profile.component';
 import Yellove from '../../../components/yellove/yellove.component.jsx';
+import GenDash from '../../../components/gendash/gendash.component.jsx';
 
 const HomePage = () => {
 
@@ -32,6 +34,7 @@ const HomePage = () => {
                     <Yellove />
                 </Col>
             </Row>
+            <GenDash />
         </div>
     )
 };

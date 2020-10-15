@@ -1,0 +1,45 @@
+.trends-chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.trends-card {
+    padding: 2.5rem;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.chart-title {
+    color: #B6CBE1;
+}
+
+a.middle
+{
+    position: relative;
+}
+
+a.middle {
+    color: #26DFD0;
+    text-decoration: none;
+    
+    display: inline-block;
+    position: relative;
+
+    &:after {    
+        background: none repeat scroll 0 0 transparent;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        background: #B6CBE1;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
+    }
+    &:hover:after { 
+        width: 100%; 
+        left: 0; 
+    }
+}

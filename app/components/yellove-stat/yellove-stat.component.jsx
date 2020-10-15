@@ -14,9 +14,10 @@ const YelloveStat = () => {
                 <h1 className="stat-text">
                     <Typewriter
                         options={{
-                            strings: ['Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti vitae qui ut official!', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti vitae qui ut official!'],
+                            strings: ['Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti vitae qui ut official', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti vitae qui ut official'],
                             autoStart: true,
-                            loop: true
+                            loop: true,
+                            delay: 60
                         }}
                     />
                 </h1>               
