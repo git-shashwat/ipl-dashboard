@@ -17,7 +17,7 @@ const HomePage = () => {
     return (
         <div className="main-container">
             <Row>
-                <Col lg={ 3 } md={4} className="order-md-2">                
+                <Col lg={ 3 } md={ 4 } className="order-md-2">                
                     <div className="mb-3">
                         <div className="hr-text hr-text-left mt-2 mb-1">
                             <h4 className="text-white"><b>Your Interests 🚀</b></h4>

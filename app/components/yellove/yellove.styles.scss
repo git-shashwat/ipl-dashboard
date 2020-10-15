@@ -3,10 +3,15 @@
 }
 
 .yellove-stat {
-    background: #1863D6;
-    border-radius: 20px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
+    align-items: flex-start;
+    padding: 1em 1em;
+    margin-bottom: 1em;
+    min-height: 450px;
+}
+
+.stat-text {
+    font-size: 3em;
+    font-weight: 900;
+    margin-left: 1em;
 }

@@ -1,0 +1,16 @@
+.stat-logo {
+    border-radius: 50px;
+    background: #001F3D;
+    box-shadow:  6px 6px 12px #001224, 
+                 -6px -6px 12px #002c56;
+    display: flex;
+    flex-direction: column;
+    margin: 1em 1em;    
+    padding: 0.25em 0.25em;
+    width: max-content !important;
+    height: max-content !important;
+    
+    &__icon {
+        color: #F9D030;
+    }
+}

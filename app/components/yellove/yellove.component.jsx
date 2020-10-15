@@ -1,80 +1,83 @@
 import React from 'react';
-import { Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
+// import 'chartjs-plugin-datalabels';
 import {
     Row,
     Container,
     Col,
     Card,
-    CardBody,
 } from 'reactstrap';
+
+import YelloveStat from '../yellove-stat/yellove-stat.component.jsx';
 
 import './yellove.styles.scss';
 
 const Yellove = () => {
     return (
-        <Card className="csk-card mb-3">
-            <CardBody className="pt-5">
-                <Row>
-                    <Col lg={6} md={12}>
-                        <div>
-                            <p>CSK Winning % over Seasons</p>
-                            <Container fluid>
-                                <Line 
-                                    data={{
-                                        labels: ['1', '2', '3', '4', '5'],
-                                        datasets: [{
-                                            label: 'Score Readings',
-                                            fill: false,
-                                            backgroundColor: '#F9D030',
-                                            borderColor: '#F9D030',
-                                            data: [1, 2, 3, 4, 5],
-                                            radius: '20px'
-                                        }]
-                                    }}
-                                    options={{ 
-                                        maintainAspectRatio: true, 
-                                        responsive: true, 
-                                        scales: {
-                                            yAxes: [
-                                                {
-                                                    gridLines: {
-                                                        display:false
-                                                    },
-                                                    ticks: {
-                                                        display:true
-                                                    },
-                                                    display:true
-                                                }
-                                            ],
-                                            xAxes: [{
+        <div className="mt-2">
+            <Row>
+                <Col lg={8} md={12}>
+                    <Card className="neumorphic-card mb-3">
+                        <Container fluid>
+                            <Bar 
+                                data={{
+                                    labels: ['1', '2', '3', '4', '5'],
+                                    datasets: [{
+                                        label: 'Winning %',
+                                        fill: false,
+                                        backgroundColor: ['#135595', '#F9D030', '#135595', '#135595', '#F9D030'],
+                                        borderColor: '#135595',
+                                        data: [1, 2, 3, 4, 5],
+                                        radius: '20px'
+                                    }]
+                                }}
+                                options={{ 
+                                    maintainAspectRatio: true, 
+                                    responsive: true, 
+                                    title: {
+                                        display: true,
+                                        fontColor: 'white',
+                                        text: 'CSK Winning % over years'
+                                    },
+                                    scales: {
+                                        yAxes: [
+                                            {
                                                 gridLines: {
                                                     display:false
                                                 },
-                                                display: true 
-                                            }]
-                                        },
-                                        legend: {
-                                            display: false
-                                        },
-                                        tooltips: {
-                                            enabled: true
-                                        }
-                                    }}
-                                />
-                            </Container>
-                        </div>
-                    </Col>
-                    <Col lg={6} md={12} className="d-flex flex-column justify-content-between">
-                        <div className="mt-3 yellove-trivia">
-                            <h1>This is a stat <span className="yellove-text">%</span> - typewriter-effect</h1>
-                        </div>
-                        <div className="mt-3 yellove-stat">
-                            <h1>This is a trivia</h1>
-                        </div>
-                    </Col>
-                </Row>
-            </CardBody>
-        </Card>
+                                                ticks: {
+                                                    fontColor: '#26DFD0',
+                                                    beginAtZero: true
+                                                }
+                                            }
+                                        ],
+                                        xAxes: [{
+                                            gridLines: {
+                                                display:false
+                                            },
+                                            ticks: {
+                                                fontColor: '#26DFD0'
+                                            },
+                                        }]
+                                    },
+                                    legend: {
+                                        display: false
+                                    },
+                                    tooltips: {
+                                        enabled: true
+                                    }
+                                }}
+                            />
+                        </Container>
+                    </Card>
+                </Col>
+                <Col lg={4} md={12} className="d-flex flex-column">
+                    <Card className="neumorphic-card yellove-stat">
+                            <YelloveStat />
+                    </Card>
+                </Col>
+            </Row>
+        </div>
     );
 };
 

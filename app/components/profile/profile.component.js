@@ -17,7 +17,7 @@ const Profile = () => {
     };
 
     return (
-        <Card>
+        <Card className="neumorphic-card">
             <CardBody className="profile-card">
                 <Lottie width="200" height="225" options={defaultOptions} />
                 <div className="personality-strip">
