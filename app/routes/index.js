@@ -16,9 +16,7 @@ import { DefaultNavbar } from './../layout/components/DefaultNavbar';
 export const RoutedContent = () => {
     return (
         <Switch>
-            <Redirect from="/" to="/dashboard" exact />
-            
-            <Route path="/dashboard" exact component={HomePage} />
+            <Route path="/" exact component={HomePage} />
             { /*    404    */ }
             <Redirect to="/pages/error-404" />
         </Switch>
