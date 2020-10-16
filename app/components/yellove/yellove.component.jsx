@@ -17,7 +17,7 @@ const Yellove = () => {
         <div className="mt-2">
             <Row>
                 <Col lg={8} md={12}>
-                    <Card className="mb-3" style={{ zIndex: '-1', backgroundColor: 'transparent', borderRadius: '50px' }}>
+                    <Card className="neumorphic-card mb-3" style={{ zIndex: '-1', backgroundColor: 'transparent', borderRadius: '50px' }}>
                         <Container fluid>
                             <Bar 
                                 data={{
