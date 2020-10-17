@@ -1,6 +1,8 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ManifestPlugin = require('webpack-manifest-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 var ExtractCssChunks = require("extract-css-chunks-webpack-plugin");
 var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 var TerserPlugin = require('terser-webpack-plugin');
@@ -34,6 +36,61 @@ module.exports = {
             failOnError: true,
             allowAsyncCycles: false,
             cwd: process.cwd(),
+        }),
+        new WorkboxPlugin.GenerateSW({
+            // these options encourage the ServiceWorkers to get in there fast
+            // and not allow any straggling "old" SWs to hang around
+            clientsClaim: true,
+            skipWaiting: true,
+            maximumFileSizeToCacheInBytes: 17400000
+        }),
+        new ManifestPlugin({
+            seed: ({
+                name: "atlan IPL Task",
+                short_name: "atlan IPL",
+               icons: [
+                {
+                 src: "/static/android-icon-36x36.png",
+                 sizes: "36x36",
+                 type: "image/png",
+                 density: "0.75"
+                },
+                {
+                 src: "/static/android-icon-48x48.png",
+                 sizes: "48x48",
+                 type: "image/png",
+                 density: "1.0"
+                },
+                {
+                 src: "/static/android-icon-72x72.png",
+                 sizes: "72x72",
+                 type: "image/png",
+                 density: "1.5"
+                },
+                {
+                 src: "/static/android-icon-96x96.png",
+                 sizes: "96x96",
+                 type: "image/png",
+                 density: "2.0"
+                },
+                {
+                 src: "/static/android-icon-144x144.png",
+                 sizes: "144x144",
+                 type: "image/png",
+                 density: "3.0"
+                },
+                {
+                 src: "/static/android-icon-192x192.png",
+                 sizes: "192x192",
+                 type: "image/png",
+                 density: "4.0"
+                }
+               ],
+               start_url: "/",
+               display: "standalone",
+               theme_color: "#B6CBE1",
+               background_color: "#001F3D"
+            })
         }),
         new HtmlWebpackPlugin({
             template: config.srcHtmlLayout,
@@ -145,7 +202,7 @@ module.exports = {
         contentBase: config.distDir,
         compress: true,
         historyApiFallback: {
-            index: '/'
+            index: BASE_PATH
         },
         host: '0.0.0.0',
         port: 4100
