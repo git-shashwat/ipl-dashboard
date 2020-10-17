@@ -16,7 +16,6 @@ class EmptyLayout extends React.Component {
     componentDidMount() {
         this.props.pageConfig.setElementsVisibility({
             navbarHidden: true,
-            sidebarHidden: true,
             footerHidden: true 
         });
     }
@@ -24,7 +23,6 @@ class EmptyLayout extends React.Component {
     componentWillUnmount() {
         this.props.pageConfig.setElementsVisibility({
             navbarHidden: false,
-            sidebarHidden: false,
             footerHidden: false 
         });
     }

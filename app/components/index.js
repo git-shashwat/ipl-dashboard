@@ -1,5 +1,4 @@
 import EmptyLayout from './EmptyLayout';
-import FloatGrid from './FloatGrid';
 import Layout, {
     withPageConfig,
     setupPage,
@@ -9,8 +8,6 @@ import Layout, {
 import Nav from './Nav';
 import Navbar from './Navbar';
 import NavbarThemeProvider from './NavbarThemeProvider';
-import Sidebar from './Sidebar';
-import SidebarMenu from './SidebarMenu';
 import {
     ThemeProvider,
 } from './Theme';
@@ -91,7 +88,6 @@ export {
 export {
     //App,
     EmptyLayout,
-    FloatGrid,
     Layout,
     Nav,
     Navbar,
@@ -100,7 +96,5 @@ export {
     setupPage,
     PageConfigConsumer,
     PageConfigProvider,
-    Sidebar,
-    SidebarMenu,
     ThemeProvider,
 };
