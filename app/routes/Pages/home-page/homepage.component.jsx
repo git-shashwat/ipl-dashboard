@@ -7,7 +7,6 @@ import {
 } from 'reactstrap';
 import { setupPage } from '../../../components/Layout/setupPage';
 
-import "../../../styles/components/status-lights.scss";
 import "./homepage.styles.scss";
 import Profile from '../../../components/profile/profile.component';
 import Yellove from '../../../components/yellove/yellove.component.jsx';
