@@ -1,7 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ManifestPlugin = require('webpack-manifest-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 var CircularDependencyPlugin = require('circular-dependency-plugin');
 var ExtractCssChunks = require("extract-css-chunks-webpack-plugin");
 
@@ -36,9 +36,13 @@ module.exports = {
             allowAsyncCycles: false,
             cwd: process.cwd(),
         }),
-        // new ManifestPlugin({
-        //     publicPath: '../app/public'
-        // }),
+        new WorkboxPlugin.GenerateSW({
+            // these options encourage the ServiceWorkers to get in there fast
+            // and not allow any straggling "old" SWs to hang around
+            clientsClaim: true,
+            skipWaiting: true,
+            maximumFileSizeToCacheInBytes: 17400000
+        }),
         new HtmlWebpackPlugin({
             template: config.srcHtmlLayout,
             inject: false,
