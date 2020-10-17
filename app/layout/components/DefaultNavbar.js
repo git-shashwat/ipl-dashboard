@@ -5,7 +5,6 @@ import {
     Navbar,
     Nav,
     NavItem,
-    SidebarTrigger,
 } from './../../components';
 
 const MainHeader = () => {
