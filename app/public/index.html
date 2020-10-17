@@ -11,9 +11,11 @@
 
   <% if (config.files.favicon) { %>
   <link rel="shortcut icon" href="<%= config.files.favicon%>">
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   <% } %>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, minimal-ui">
+
+  <!-- <link rel="manifest" href="<%= config.files.manifest%>"> -->
+    <link rel="manifest" href="manifest.json">
 
   <% for (var css in config.files.css) { %>
   <link href="<%= config.files.css[css] %>" rel="preload" as="style">

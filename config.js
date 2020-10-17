@@ -5,7 +5,7 @@ var root = path.join(__dirname);
 var config = {
     rootDir:                root,
     // Targets ========================================================
-    serveDir:               path.join(root, '.serve'),
+    serveDir:               path.join(root, '/app/public'),
     distDir:                path.join(root, 'dist'),
     clientManifestFile:     'manifest.webpack.json',
     clientStatsFile:        'stats.webpack.json',

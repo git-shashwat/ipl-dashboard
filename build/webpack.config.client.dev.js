@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ManifestPlugin = require('webpack-manifest-plugin');
 var CircularDependencyPlugin = require('circular-dependency-plugin');
 var ExtractCssChunks = require("extract-css-chunks-webpack-plugin");
 
@@ -35,6 +36,9 @@ module.exports = {
             allowAsyncCycles: false,
             cwd: process.cwd(),
         }),
+        // new ManifestPlugin({
+        //     publicPath: '../app/public'
+        // }),
         new HtmlWebpackPlugin({
             template: config.srcHtmlLayout,
             inject: false,
