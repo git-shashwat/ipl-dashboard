@@ -56,11 +56,11 @@ const GenDash = () => {
                         <Col lg={6} md={12}>
                             <Card className="neumorphic-card trends-card">
                                 <CardTitle className="pt-4 pl-4">
-                                    <h5 className="chart-title">Lorem ipsum dolor sit amet consectetur</h5>
+                                    <h5 className="chart-title">RCB&#39;s hope of winning IPL, lol</h5>
                                 </CardTitle>
                                 <CardBody>
                                     <Trend 
-                                        data={[13, 10, 5, 22, 3.6, 11]}
+                                        data={stats.rcb_hope_per}
                                         autoDraw={true}
                                         gradient={['#26DFD0', '#B8EE30', '#F62AA0']}
                                         smooth={true}

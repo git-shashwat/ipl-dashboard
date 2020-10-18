@@ -32,5 +32,21 @@ export default matches => {
 
     stats.dl_field_champ_per = dlFieldChampCount / dlMatchArr.length * 100;
 
+    // RCB hope
+    const rcbHopeCountSeason = _(
+        matches
+        .filter(match => match.winner === "Royal Challengers Bangalore")
+    )
+    .groupBy('season')
+    .value();
+
+    let rcbHopeCountSeasonArr = Object.keys(rcbHopeCountSeason).map(season => {
+        let rcbHopeCount = rcbHopeCountSeason[season].length;
+        return rcbHopeCount;
+    });
+    console.log(rcbHopeCountSeasonArr)
+
+    stats.rcb_hope_per = rcbHopeCountSeasonArr;
+
     return stats;
 };
