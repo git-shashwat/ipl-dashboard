@@ -83,7 +83,8 @@ module.exports = {
                  src: "/static/android-icon-192x192.png",
                  sizes: "192x192",
                  type: "image/png",
-                 density: "4.0"
+                 density: "4.0",
+                 purpose: "any maskable"
                 },
                 {
                  src: "/static/android-icon-512x512.png",
@@ -94,7 +95,7 @@ module.exports = {
                ],
                start_url: "/",
                display: "standalone",
-               theme_color: "#B6CBE1",
+               theme_color: "#00274d",
                background_color: "#001F3D"
             })
         }),
