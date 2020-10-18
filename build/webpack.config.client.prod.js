@@ -193,7 +193,8 @@ module.exports = {
                 loader: "file-loader",
                 options: {
                     name: "static/[name].[ext]",
-                }
+                },
+                include: [config.serveDir]  //TODO Test it once
             }
         ]
     },

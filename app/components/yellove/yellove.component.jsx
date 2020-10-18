@@ -11,8 +11,20 @@ import {
 import YelloveStat from '../yellove-stat/yellove-stat.component.jsx';
 
 import './yellove.styles.scss';
+import matches from '../../../matches.json';
 
 const Yellove = () => {
+    const cskWinPercentages = {}; 
+    matches.forEach(match => {
+        if (match.winner === "Chennai Super Kings") {
+            if (!cskWinPercentages[match.season]) {
+                cskWinPercentages[match.season] = 1;
+            } else {
+                cskWinPercentages[match.season]++;
+            }
+        }
+    });
+    Object.keys(cskWinPercentages).forEach(key => cskWinPercentages[key] = (cskWinPercentages[key] / 14) * 100);
     return (
         <div className="mt-2">
             <Row>
@@ -21,13 +33,17 @@ const Yellove = () => {
                         <Container fluid>
                             <Bar 
                                 data={{
-                                    labels: ['1', '2', '3', '4', '5'],
+                                    labels: Object.keys(cskWinPercentages),
                                     datasets: [{
                                         label: 'Winning %',
                                         fill: false,
-                                        backgroundColor: ['#135595', '#F9D030', '#135595', '#F9D030', '#135595'],
+                                        backgroundColor: Object.keys(cskWinPercentages).map(key => {
+                                            if (cskWinPercentages[key] > 75)
+                                                return '#F9D030'
+                                            return '#135595'
+                                        }),
                                         borderColor: '#135595',
-                                        data: [1, 2, 3, 4, 5],
+                                        data: Object.keys(cskWinPercentages).map(key => cskWinPercentages[key]),
                                         radius: '20px'
                                     }]
                                 }}
@@ -73,7 +89,7 @@ const Yellove = () => {
                 </Col>
                 <Col lg={4} md={12} className="d-flex flex-column">
                     <Card className="neumorphic-card yellove-stat">
-                            <YelloveStat />
+                            <YelloveStat matches={matches} />
                     </Card>
                 </Col>
             </Row>
