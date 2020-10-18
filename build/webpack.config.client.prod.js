@@ -84,6 +84,12 @@ module.exports = {
                  sizes: "192x192",
                  type: "image/png",
                  density: "4.0"
+                },
+                {
+                 src: "/static/android-icon-512x512.png",
+                 sizes: "512x512",
+                 type: "image/png",
+                 density: "5.0"
                 }
                ],
                start_url: "/",
@@ -193,8 +199,7 @@ module.exports = {
                 loader: "file-loader",
                 options: {
                     name: "static/[name].[ext]",
-                },
-                include: [config.serveDir]  //TODO Test it once
+                }
             }
         ]
     },
