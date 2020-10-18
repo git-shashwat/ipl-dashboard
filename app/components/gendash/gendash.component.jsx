@@ -5,24 +5,27 @@ import Trend from 'react-trend';
 import './gendash.styles.scss';
 import DashCard from '../dash-card/dash-card.component.jsx';
 import DashBar from '../dash-bar/dash-bar.component.jsx';
+import matches from '../../../matches.json';
+import statsGenerator from '../../utils/statsGenerator';
 
 const GenDash = () => {
+    const stats = statsGenerator(matches);
     return (
         <div id="general" className="mt-5">
             <Row>
                 <Col lg={6} md={12} className="trends-chart order-md-2">
-                    <DashBar />
+                    <DashBar matches={matches} />
                 </Col>            
                 <Col className="mb-5 order-md-1" lg={6} md={12}>                
                     <Row>
                         <Col lg={6} md={12} className="d-flex align-items-end">
                             <Card className="neumorphic-card trends-card">
                                 <CardTitle className="pt-4 pl-4">
-                                    <h5 className="chart-title">Number of Punjabi Players over the seasons</h5>
+                                    <h5 className="chart-title">Punjabi Player of Match over the seasons</h5>
                                 </CardTitle>
                                 <CardBody>
                                     <Trend 
-                                        data={[0, 10, 5, 22, 3.6, 11]}
+                                        data={stats.punjabi_count}
                                         autoDraw={true}
                                         gradient={['#0FF', '#F0F', '#FF0']}
                                         smooth={true}

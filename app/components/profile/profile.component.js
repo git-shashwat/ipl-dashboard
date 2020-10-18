@@ -19,7 +19,7 @@ const Profile = () => {
     return (
         <Card className="neumorphic-card">
             <CardBody className="profile-card">
-                <Lottie width="200" height="225" options={defaultOptions} />
+                <Lottie width="200" height="200" options={defaultOptions} />
                 <div className="personality-strip">
                     <Badge className="personality-strip__badge">Geek</Badge>
                     <Badge className="personality-strip__badge">Sarcastic</Badge>
