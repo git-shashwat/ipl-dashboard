@@ -10,7 +10,9 @@ import './dash-bar.styles.scss';
 import statsGenerator from '../../utils/statsGenerator.js';
 
 const DashBar = ({ matches }) => {
-    const value = statsGenerator(matches).dl_field_champ_per;
+    const stats = statsGenerator(matches);
+
+    const value = stats.dl_field_champ_per;
     return (
         <Card className="dashbar-container neumorphic-card d-flex flex-column">
             <div className="bar-container">
@@ -44,40 +46,23 @@ const DashBar = ({ matches }) => {
                 </Row>  
             </div>
             <div className="mt-2 stat-table">
+                <h5>Top Performing Franchises (Overall)</h5>
                 <Table striped responsive hover>
                     <thead>
                         <tr>
-                            <th>A</th>
-                            <th>B</th>
-                            <th>C</th>
-                            <th>D</th>
+                            <th>S.No.</th>
+                            <th>Team Name</th>
+                            <th>Win Count</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                        </tr>
+                        {stats.top_performing_teams.map((team, index) =>
+                            <tr key={index}>
+                                <td>{index + 1}</td>
+                                <td>{team.team_name}</td>
+                                <td>{team.win_count}</td>
+                            </tr>
+                        )}
                     </tbody>
                 </Table>
             </div>

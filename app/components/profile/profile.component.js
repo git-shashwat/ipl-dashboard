@@ -29,7 +29,6 @@ const Profile = () => {
                     <li>Favorite Player: MS Dhoni ❤️</li>
                     <li>Favorite Team: <span className="text-yellow">Chennai Super Kings</span></li>
                     <li>Favorite Umpire: <i>Kumar Dharamsena</i></li>
-                    <li>Home Ground: Chepauk</li>
                     <li>Love: Batting 🏏</li>
                     <li>Hate: D/L Method</li>
                 </ul>            

@@ -113,8 +113,24 @@ export default matches => {
         return delhiDLPerf;
     });
 
-    console.log(delhiDLPerfSeasonArr)
     stats.dd_dl_perf = delhiDLPerfSeasonArr;
+
+    // top performing franchises
+    const topPerformingTeams = {};
+    matches.forEach(match => {
+        if(!topPerformingTeams[match.winner]) {
+            topPerformingTeams[match.winner] = 1;
+        } else {
+            topPerformingTeams[match.winner]++;
+        }
+    })
+
+    const topPerformingTeamsArr = Object.keys(topPerformingTeams)
+    .map(team => ({ team_name: team, win_count: topPerformingTeams[team]}))
+    .sort((a, b) => b.win_count - a.win_count)
+    .slice(1, 5);
+    
+    stats.top_performing_teams = topPerformingTeamsArr;
 
     return stats;
 };

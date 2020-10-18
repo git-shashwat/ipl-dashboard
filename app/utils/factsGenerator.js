@@ -7,7 +7,7 @@ export default matches => {
     // Biggest win by runs
     const biggestWinByRuns = _.maxBy(matchesWonByCSK, match => match.win_by_runs);
     const againstTeam = biggestWinByRuns.team1 === "Chennai Super Kings" ? biggestWinByRuns.team2 : biggestWinByRuns.team1;
-    facts.push(`CSK's best defense performance was a win by ${biggestWinByRuns.win_by_runs} runs in ${biggestWinByRuns.season} against ${againstTeam}`);
+    facts.push(`CSK's best defense game was a win by ${biggestWinByRuns.win_by_runs} runs in ${biggestWinByRuns.season} against ${againstTeam}`);
 
     // Most lucky season
     let luckiestSeason = _(

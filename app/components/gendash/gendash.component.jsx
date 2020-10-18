@@ -83,7 +83,7 @@ const GenDash = () => {
                                 </CardBody>
                             </Card> 
                             <Card className="mt-1 neumorphic-card">
-                                <DashCard Icon={AiFillPushpin}>
+                                <DashCard Icon={AiTwotoneFire}>
                                     <h2 className="stat-text">
                                     With <a href="#general" className="middle">{stats.best_bowling_team.count}</a> wins by runs, <a href="#general" className="middle">{stats.best_bowling_team.team}</a> has the most destructive bowling lineup.
                                     </h2>                                    
