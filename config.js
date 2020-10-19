@@ -12,7 +12,7 @@ var config = {
 
     // Source Directory ===============================================
     srcDir:                 path.join(root, 'app'),
-    srcServerDir:           path.join(root, 'server'),
+    srcServerDir:           path.join(root, 'functions'),
 
     // HTML Layout ====================================================
     srcHtmlLayout:          path.join(root, 'app/public', 'index.html'),
@@ -20,7 +20,7 @@ var config = {
     // Site Config ====================================================
     siteTitle:              'atlan IPL',
     siteDescription:        'Built for Vipul',
-    siteCannonicalUrl:      'http://localhost:4100',
+    siteCannonicalUrl:      'https://atlan-task-d55a8.web.app/',
     siteKeywords:           'react cricket',
     scssIncludes:           []
 }

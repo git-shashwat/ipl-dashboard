@@ -41,7 +41,7 @@ module.exports = {
             // and not allow any straggling "old" SWs to hang around
             clientsClaim: true,
             skipWaiting: true,
-            maximumFileSizeToCacheInBytes: 17400000
+            maximumFileSizeToCacheInBytes: 1.78e+8
         }),
         new HtmlWebpackPlugin({
             template: config.srcHtmlLayout,

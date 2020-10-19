@@ -42,7 +42,7 @@ module.exports = {
             // and not allow any straggling "old" SWs to hang around
             clientsClaim: true,
             skipWaiting: true,
-            maximumFileSizeToCacheInBytes: 17400000
+            maximumFileSizeToCacheInBytes: 1.78e+7
         }),
         new ManifestPlugin({
             seed: ({
@@ -211,7 +211,6 @@ module.exports = {
         historyApiFallback: {
             index: BASE_PATH
         },
-        host: '0.0.0.0',
-        port: 4100
+        host: "https://atlan-task-d55a8.web.app/",
     }
 }

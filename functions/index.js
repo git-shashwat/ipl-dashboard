@@ -22,7 +22,7 @@ app.get('/service-worker.js', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-    res.set('Cache-Control', 'public, max-age=300, s-maxage=600')
+    res.set('Cache-Control', 'public, max-age=31536000, s-maxage=31536000')
     res.sendFile(path.resolve(__dirname, './dist/index.html'));
 });
 
