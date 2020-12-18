@@ -60,7 +60,7 @@
 
 ## Live Links
 1. Repository: https://github.com/git-shashwat/ipl-dashboard
-2. Application: https://atlan-task-d55a8.web.app/
+2. <a href="https://atlan-task-d55a8.web.app/">Application</a>
 
 ## Screenshots
 <div style="display: flex;">
