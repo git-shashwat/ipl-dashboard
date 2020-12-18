@@ -1,4 +1,4 @@
-# Front End Engineer Challenge - IPL
+# IPL Dashboard for Vipul (Not an IPL Fan)
 
 ## List of all major libraries utilised in the application:
 1. ReactJS:
@@ -18,24 +18,22 @@
 
 5. Lodash: **Utility functions** helped in making the code readable & easy to fix.
 
-## Bonus Points
-1. Web-app in Vue.js ❌
-    + Developed with ReactJS although comfortable in learning as it has similar structure to ReactJS
+## Highlights
 
-2. Optimizing loading time ✅
+1. Optimizing loading time ✅
     + I have added **fallback fonts in CSS** font-family to ensure that the text remains visible during the webfont load (Kumbh Sans in my case). This **improved the FCP Score**.
     + With **React's Virtual DOM**, rendering components is fast & thus the **LCP Score** for the dashboard is fast.
     + **Caching with Service worker** improved performance on subsequent loads.
     + Although the dashboard uses animations, I ensured **no major Layout shifts** & thus CLS is just 0.001.
     > Lighthouse Performance Score: 92
 
-3. Mobile responsive ✅ 
+2. Mobile responsive ✅ 
     + I have utilised bootstrap classes for flex & grid displays along with media queries at a few places
     + Table used in dashboard is also responsive.
     + I have avoided absolute sizing of fonts/containers wherever possible & instead used ***em*** & ***rem***
     > Responive across Desktop, Tablets & Mobile Phones
 
-4. Progressive Web App ✅
+3. Progressive Web App ✅
     + Installable
         - Uses HTTPS: Hosted on firebase hosting [`functions/index.js`]
         - Service worker registered: Using <a href="https://www.npmjs.com/package/workbox-webpack-plugin">workbox-webpack-plugin</a> [`build/webpack.config.client.prod.js`]
@@ -51,9 +49,10 @@
         - Page load is fast on mobile networks.
     >Lighthouse PWA Score: Installable & PWA Optimized
 
-5. Offline Usable ❌ 
+4. Offline Usable ❌ 
     + Tried everything but just didn't work out.
     + Unable to fetch `app.bundle.js` from service worker cache
+    + Help would be appreciated.
 
 ## Other Notes
 1. Neumorphic UI
@@ -62,14 +61,6 @@
 ## Live Links
 1. Repository: https://github.com/git-shashwat/atlan-task
 2. Deployed: https://atlan-task-d55a8.web.app/
-
-
-## Connect with me
-> ✉️: shashwat824@gmail.com
-<br>
-><a href="https://www.linkedin.com/in/shashwattyagi/">LinkedIn</a>
-<br>
-> <a href="https://twitter.com/RxShashwat" target="_blank" rel="noreferrer">Twitter</a> 
 
 ## Screenshots
 <div style="display: flex;">
