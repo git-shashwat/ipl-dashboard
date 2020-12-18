@@ -59,8 +59,8 @@
 2. **No data is hardcoded but is evaluated**. Check out [`app/utils/factsGenerator.js` & `app/utils/statsGenerator.js`]
 
 ## Live Links
-1. Repository: https://github.com/git-shashwat/atlan-task
-2. Deployed: https://atlan-task-d55a8.web.app/
+1. Repository: https://github.com/git-shashwat/ipl-dashboard
+2. <a href="https://atlan-task-d55a8.web.app/">Application</a>
 
 ## Screenshots
 <div style="display: flex;">
