@@ -4,26 +4,29 @@
 <!--[if IE 7 ]>    <html lang="en" class="ie7" <% if(config.files.manifest) { %> manifest="<%= config.files.manifest %>"<% } %>> <![endif]-->
 <!--[if IE 8 ]>    <html lang="en" class="ie8" <% if(config.files.manifest) { %> manifest="<%= config.files.manifest %>"<% } %>> <![endif]-->
 <!--[if IE 9 ]>    <html lang="en" class="ie9" <% if(config.files.manifest) { %> manifest="<%= config.files.manifest %>"<% } %>> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="" <% if(config.files.manifest) { %> manifest="<%= config.files.manifest %>"<% } %>> <!--<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="" <% if(config.files.manifest) { %> manifest="<%= config.files.manifest %>" <% } %>>
+<!--<![endif]-->
+
 <head>
   <meta charset="utf-8">
-  <title>atlan IPL</title>
+  <title>IPL Dashboard</title>
 
   <% if (config.files.favicon) { %>
   <link rel="shortcut icon" href="<%= config.files.favicon%>">
   <% } %>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="theme-color" content="#00274d"/>
+  <meta name="theme-color" content="#00274d" />
   <link rel="manifest" href="/manifest.json">
-  <link rel="canonical" href="https://atlan-task-d55a8.web.app/"/>
+  <link rel="canonical" href="http://ipl-dash.surge.sh/" />
 
   <% for (var css in config.files.css) { %>
   <link href="<%= config.files.css[css] %>" rel="preload" as="style">
   <link href="<%= config.files.css[css] %>" rel="stylesheet">
   <% } %>
-  
+
   <% if (config.options.chunks) { %>
-    <%= config.options.chunks.css %>
+  <%= config.options.chunks.css %>
   <% } %>
 
   <!-- Loader Style -->
@@ -33,6 +36,7 @@
         transform: rotate(360deg)
       }
     }
+
     .initial-loader-wrap {
       top: 0;
       left: 0;
@@ -48,23 +52,28 @@
       background-color: white;
       transition: opacity 200ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
     }
+
     .loaded .initial-loader-wrap {
       opacity: 0;
     }
+
     .initial-loader {
       min-width: 240px;
       color: #212529;
       line-height: 1.5;
     }
+
     .initial-loader__row {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 0.5rem;
     }
-    .initial-loader__row + .initial-loader__row {
+
+    .initial-loader__row+.initial-loader__row {
       border-top: 1px solid #e2e2e2;
     }
+
     .initial-loader h1 {
       margin: 0;
       color: #0D7BFF;
@@ -72,12 +81,14 @@
       font-weight: 600;
       line-height: 1.2;
     }
+
     .initial-loader svg#loader-circle {
       transform-origin: 50% 50%;
-	    animation: spin .5s linear infinite;
+      animation: spin .5s linear infinite;
     }
   </style>
 </head>
+
 <body>
   <!-- START Loader -->
   <div class="initial-loader-wrap">
@@ -92,21 +103,21 @@
   </div>
 
   <script>
-    (function() {
-        var bodyElement = document.querySelector('body');
-        bodyElement.classList.add('loading');
+    (function () {
+      var bodyElement = document.querySelector('body');
+      bodyElement.classList.add('loading');
 
-        document.addEventListener('readystatechange', function() {
-            if(document.readyState === 'complete') {
-                var bodyElement = document.querySelector('body');
-                var loaderElement = document.querySelector('.initial-loader-wrap');
-                bodyElement.classList.add('loaded');
-                setTimeout(function() {
-                    bodyElement.removeChild(loaderElement);
-                    bodyElement.classList.remove('loading', 'loaded');
-                }, 200);
-            }
-        });
+      document.addEventListener('readystatechange', function () {
+        if (document.readyState === 'complete') {
+          var bodyElement = document.querySelector('body');
+          var loaderElement = document.querySelector('.initial-loader-wrap');
+          bodyElement.classList.add('loaded');
+          setTimeout(function () {
+            bodyElement.removeChild(loaderElement);
+            bodyElement.classList.remove('loading', 'loaded');
+          }, 200);
+        }
+      });
     })();
   </script>
   <!-- END Loader -->
@@ -121,4 +132,5 @@
   <script src="<%= config.options.devServer%>/webpack-dev-server.js"></script>
   <% } %>
 </body>
+
 </html>
