@@ -64,7 +64,6 @@
 
 ## Screenshots
 <div style="display: flex;">
-    <img src="./screenshots/Screenshot_2020-10-19-13-44-46-58.png" alt="app_icon" width="300"/>
     <img src="./screenshots/Screenshot_2020-10-19-13-44-52-38.png" alt="splash_screen" width="300" />
     <img src="./screenshots/Screenshot_2020-10-19-13-45-05-38.png" alt="app" width="300" />
 </div>
